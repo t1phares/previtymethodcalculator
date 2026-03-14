@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Previty Method&trade; | Chronic Disease Risk & Health Age Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #1a3a2a;
+  --forest-mid: #2d5a3d;
+  --forest-light: #3d7a52;
+  --sage: #7aad8a;
+  --sage-pale: #c8e6cf;
+  --mint: #e8f5e9;
+  --cream: #faf8f3;
+  --warm: #f5f0e8;
+  --sand: #e8e0cc;
+  --amber: #d4891a;
+  --amber-pale: #fef3dc;
+  --coral: #e05c4b;
+  --coral-pale: #fce8e6;
+  --gold: #c9a227;
+  --text: #1c2b22;
+  --text-mid: #3d5245;
+  --text-muted: #7a9080;
+  --white: #ffffff;
+  --shadow: rgba(26,58,42,0.12);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--forest);
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-wrap { display:flex; flex-direction:column; }
+.logo-name { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--white); letter-spacing:0.5px; }
+.logo-sub { font-size:10px; color:var(--sage); letter-spacing:2.5px; text-transform:uppercase; font-weight:500; margin-top:1px; }
+.header-pill { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:var(--sage-pale); padding:6px 14px; border-radius:20px; font-size:11px; font-weight:500; letter-spacing:0.5px; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--forest);
+  padding: 72px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-blob {
+  position:absolute; border-radius:50%;
+  background: radial-gradient(circle, rgba(122,173,138,0.12) 0%, transparent 70%);
+}
+.hero-blob-1 { width:600px; height:600px; top:-200px; right:-100px; }
+.hero-blob-2 { width:400px; height:400px; bottom:-150px; left:10%; }
+.hero-content { max-width:760px; margin:0 auto; position:relative; z-index:1; text-align:center; }
+.hero-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(122,173,138,0.15); border:1px solid rgba(122,173,138,0.3);
+  color:var(--sage); padding:6px 16px; border-radius:20px;
+  font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+  margin-bottom:24px;
+}
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size: clamp(40px,6vw,72px);
+  font-weight:600; line-height:1.05; color:var(--white);
+  margin-bottom:20px; letter-spacing:-0.5px;
+}
+.hero h1 em { font-style:italic; color:var(--sage); }
+.hero-desc { font-size:16px; color:rgba(255,255,255,0.65); line-height:1.75; max-width:560px; margin:0 auto 32px; }
+.hero-stats {
+  display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
+  padding-top:28px; border-top:1px solid rgba(255,255,255,0.1);
+}
+.hero-stat-val { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--sage); display:block; }
+.hero-stat-label { font-size:11px; color:rgba(255,255,255,0.45); letter-spacing:1px; text-transform:uppercase; font-weight:500; }
+.disclaimer-strip {
+  background:rgba(255,255,255,0.05); border-top:1px solid rgba(255,255,255,0.08);
+  padding:12px 48px; text-align:center; font-size:11px;
+  color:rgba(255,255,255,0.38); letter-spacing:0.3px; line-height:1.6;
+}
+
+/* ── MAIN ── */
+.main { max-width:900px; margin:0 auto; padding:52px 24px 100px; }
+
+/* ── SECTION HEADERS ── */
+.section-head {
+  display:flex; align-items:flex-end; gap:16px;
+  margin-bottom:28px; padding-bottom:16px;
+  border-bottom:1px solid var(--sand);
+}
+.section-num {
+  font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:300;
+  color:var(--sand); line-height:1; flex-shrink:0;
+}
+.section-title-wrap {}
+.section-title { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--forest); line-height:1.1; }
+.section-sub { font-size:13px; color:var(--text-muted); margin-top:3px; line-height:1.5; }
+
+/* ── CARD ── */
+.card {
+  background:var(--white);
+  border-radius:16px;
+  box-shadow:0 2px 20px var(--shadow), 0 1px 4px rgba(26,58,42,0.06);
+  overflow:hidden;
+  margin-bottom:48px;
+}
+.card-body { padding:32px 36px; }
+
+/* ── FORM FIELDS ── */
+.fields-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.field-full { grid-column:1/-1; }
+.field { display:flex; flex-direction:column; gap:7px; }
+.field label {
+  font-size:11px; font-weight:600; letter-spacing:0.8px;
+  text-transform:uppercase; color:var(--text-muted);
+}
+.field input, .field select {
+  padding:12px 16px;
+  border:1.5px solid var(--sand);
+  border-radius:10px;
+  font-family:'DM Sans',sans-serif; font-size:15px; color:var(--text);
+  background:var(--warm);
+  transition:border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  appearance:none; -webkit-appearance:none;
+  /* hide number input spinners */
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }
+input[type=number] { -moz-appearance:textfield; appearance:textfield;
+}
+.field input:focus, .field select:focus {
+  outline:none; border-color:var(--forest-mid);
+  box-shadow:0 0 0 3px rgba(45,90,61,0.1);
+  background:var(--white);
+}
+.select-wrap { position:relative; }
+.field-hint { font-size:11px; color:var(--text-muted); font-style:italic; }
+
+/* ── TOGGLE BUTTONS ── */
+.toggle-group { display:flex; gap:8px; flex-wrap:wrap; }
+.tgl {
+  padding:9px 18px; border:1.5px solid var(--sand); border-radius:8px;
+  background:var(--warm); font-family:'DM Sans',sans-serif; font-size:13px;
+  font-weight:500; color:var(--text-muted); cursor:pointer; transition:all 0.15s;
+}
+.tgl:hover { border-color:var(--forest-mid); color:var(--forest); background:var(--mint); }
+.tgl.on { background:var(--forest); border-color:var(--forest); color:var(--white); font-weight:600; }
+
+/* ── LIFESTYLE PILLARS ── */
+.pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.pillar {
+  background:var(--warm); border:1.5px solid var(--sand); border-radius:12px;
+  padding:20px; transition:border-color 0.2s;
+}
+.pillar:hover { border-color:var(--sage); }
+.pillar-icon { font-size:24px; margin-bottom:8px; }
+.pillar-title { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:var(--forest); margin-bottom:12px; }
+.pillar .field label { font-size:10.5px; }
+.pillar .field input, .pillar .field select { font-size:13px; padding:9px 12px; }
+.pillar .toggle-group { gap:5px; }
+.pillar .tgl { padding:6px 12px; font-size:12px; }
+.pillar .field { gap:5px; margin-bottom:10px; }
+.pillar .field:last-child { margin-bottom:0; }
+
+/* ── SUBMIT ── */
+.submit-wrap {
+  background:var(--forest); border-radius:16px; padding:36px 40px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+  margin-bottom:48px;
+}
+.submit-msg { color:rgba(255,255,255,0.65); font-size:13px; line-height:1.6; max-width:400px; }
+.submit-btn {
+  background:var(--sage); color:var(--forest); border:none;
+  padding:16px 40px; border-radius:12px;
+  font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600;
+  cursor:pointer; white-space:nowrap; transition:all 0.2s;
+  box-shadow:0 4px 20px rgba(122,173,138,0.4);
+  letter-spacing:0.3px;
+}
+.submit-btn:hover { background:var(--white); transform:translateY(-2px); box-shadow:0 6px 28px rgba(122,173,138,0.5); }
+.submit-btn:active { transform:translateY(0); }
+
+/* ── RESULTS ── */
+#results { display:none; animation:revealUp 0.6s ease both; }
+@keyframes revealUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── HEALTH AGE HERO v2 ── */
+.age-hero {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  border-radius:20px; padding:40px 36px 32px;
+  margin-bottom:16px; position:relative; overflow:hidden;
+}
+.age-hero::before {
+  content:'';
+  position:absolute; top:-60px; right:-60px;
+  width:300px; height:300px; border-radius:50%;
+  background:radial-gradient(circle, rgba(122,173,138,0.15) 0%, transparent 70%);
+}
+.age-hero::after {
+  content:'';
+  position:absolute; bottom:-80px; left:5%;
+  width:240px; height:240px; border-radius:50%;
+  background:radial-gradient(circle, rgba(122,173,138,0.08) 0%, transparent 70%);
+}
+.age-panels { display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1.1fr; gap:0; align-items:center; position:relative; z-index:1; }
+.age-block { text-align:center; padding:0 16px; }
+.age-label { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:10px; }
+.age-number { font-family:'Cormorant Garamond',serif; font-size:80px; font-weight:300; line-height:1; color:var(--white); letter-spacing:-3px; }
+.age-unit { font-size:13px; color:rgba(255,255,255,0.4); font-weight:300; margin-top:4px; }
+.age-badge { display:inline-block; margin-top:8px; font-size:10px; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; padding:3px 10px; border-radius:20px; }
+.age-divider { display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.25; }
+.age-divider-line { width:1px; height:56px; background:rgba(255,255,255,0.5); }
+.age-divider-arrow { font-size:18px; color:rgba(255,255,255,0.6); }
+.age-potential .age-number { font-size:72px; }
+
+/* Explanation panel below hero */
+.age-explain {
+  background:var(--white); border-radius:0 0 16px 16px;
+  margin-top:0; padding:0;
+  box-shadow:0 4px 24px var(--shadow);
+  overflow:hidden;
+}
+.age-explain-tabs { display:flex; border-bottom:1px solid var(--sand); }
+.age-tab {
+  flex:1; padding:14px 12px; text-align:center;
+  font-size:11px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase;
+  color:var(--text-muted); cursor:pointer; transition:all 0.15s;
+  border-bottom:2px solid transparent; margin-bottom:-1px;
+}
+.age-tab.active { color:var(--forest); border-bottom-color:var(--forest); }
+.age-tab:hover:not(.active) { color:var(--forest-mid); background:var(--mint); }
+.age-tab-content { padding:24px 28px; display:none; }
+.age-tab-content.active { display:block; }
+
+.age-explain-text { font-size:13px; color:var(--text-mid); line-height:1.75; }
+.age-explain-text p { margin-bottom:12px; }
+.age-explain-text p:last-child { margin-bottom:0; }
+.age-explain-text strong { color:var(--forest); }
+.age-explain-text em { color:var(--forest-mid); font-style:italic; }
+
+/* Longevity gain table */
+.longevity-table { width:100%; border-collapse:collapse; margin-top:4px; }
+.longevity-table th { font-size:9px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--text-muted); padding:8px 10px; text-align:left; border-bottom:2px solid var(--sand); }
+.longevity-table td { padding:10px 10px; font-size:12px; border-bottom:1px solid var(--warm); vertical-align:middle; }
+.longevity-table tr:last-child td { border-bottom:none; }
+.longevity-table tr:hover td { background:var(--mint); }
+.longevity-table .gain-bar-cell { width:120px; }
+.gain-bar-bg { height:6px; background:var(--warm); border-radius:3px; overflow:hidden; display:inline-block; width:100%; }
+.gain-bar-fill { height:100%; border-radius:3px; background:var(--sage); transition:width 0.8s ease; }
+.gain-num { font-family:'DM Mono',monospace; font-size:11px; font-weight:500; color:var(--forest); white-space:nowrap; }
+.gain-possible { color:var(--text-muted); font-size:10px; font-style:italic; }
+.gain-tag { font-size:9px; padding:2px 7px; border-radius:3px; font-weight:600; letter-spacing:0.3px; }
+.tag-applicable { background:var(--mint); color:var(--forest-mid); }
+.tag-na { background:var(--warm); color:var(--text-muted); }
+
+/* Optimal path */
+.optimal-path { display:flex; flex-direction:column; gap:10px; }
+.opt-item { display:flex; align-items:flex-start; gap:12px; padding:12px 14px; background:var(--warm); border-radius:8px; border-left:3px solid var(--sage); }
+.opt-icon { font-size:18px; flex-shrink:0; }
+.opt-text { font-size:12px; color:var(--text-mid); line-height:1.55; }
+.opt-text strong { color:var(--forest); }
+.opt-years { font-family:'DM Mono',monospace; font-size:11px; color:var(--sage); font-weight:500; margin-top:3px; display:block; }
+
+@media(max-width:780px){
+  .age-hero{grid-template-columns:1fr;text-align:center;}
+  .age-panels{grid-template-columns:1fr 1fr;gap:20px;row-gap:16px;}
+  .age-divider{display:none;}
+  .age-tab{font-size:9px;padding:10px 6px;}
+  .age-tab-content{padding:16px;}
+}
+
+/* ── OVERALL SCORE ── */
+.overall-band {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:32px;
+}
+.overall-card {
+  background:var(--white); border-radius:12px; padding:20px;
+  box-shadow:0 2px 12px var(--shadow); text-align:center;
+  border-top:3px solid transparent;
+}
+.overall-card-label { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+.overall-card-val { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:600; line-height:1; margin-bottom:4px; }
+.overall-card-sub { font-size:11px; color:var(--text-muted); line-height:1.4; }
+
+/* ── DISEASE RISK GRID ── */
+.disease-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.disease-card {
+  background:var(--white); border-radius:14px; padding:20px 22px;
+  box-shadow:0 2px 12px var(--shadow); border-left:4px solid transparent;
+  transition:transform 0.15s, box-shadow 0.15s;
+  animation:revealUp 0.5s ease both;
+}
+.disease-card:hover { transform:translateY(-2px); box-shadow:0 6px 24px var(--shadow); }
+.dc-header { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:12px; gap:12px; }
+.dc-icon-name { display:flex; align-items:center; gap:10px; }
+.dc-icon { font-size:22px; }
+.dc-name { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--forest); line-height:1.2; }
+.dc-rank { font-size:10px; font-family:'DM Mono',monospace; color:var(--text-muted); letter-spacing:0.5px; white-space:nowrap; }
+.dc-pct { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600; line-height:1; }
+.dc-bar-bg { height:6px; background:var(--warm); border-radius:3px; overflow:hidden; margin-bottom:10px; }
+.dc-bar-fill { height:100%; border-radius:3px; transition:width 0.9s cubic-bezier(0.4,0,0.2,1); }
+.dc-drivers { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:10px; }
+.dc-chip { font-size:10px; padding:2px 8px; border-radius:4px; font-family:'DM Mono',monospace; }
+.chip-risk { background:#fce8e6; color:#c0392b; }
+.chip-protective { background:#e8f5e9; color:#2d7a3a; }
+.dc-action { font-size:11px; color:var(--text-muted); line-height:1.5; font-style:italic; border-top:1px solid var(--warm); padding-top:8px; }
+
+/* ── LIFESTYLE SCORECARD ── */
+.lifestyle-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; }
+.lf-card {
+  background:var(--white); border-radius:12px; padding:16px 12px;
+  box-shadow:0 2px 10px var(--shadow); text-align:center;
+}
+.lf-icon { font-size:22px; margin-bottom:8px; }
+.lf-name { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-muted); margin-bottom:6px; }
+.lf-score { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; line-height:1; }
+.lf-label { font-size:10px; color:var(--text-muted); margin-top:3px; }
+.lf-bar { height:4px; background:var(--warm); border-radius:2px; overflow:hidden; margin-top:8px; }
+.lf-bar-fill { height:100%; border-radius:2px; transition:width 0.8s ease; }
+
+/* ── ACTION PLAN ── */
+.actions-wrap { display:flex; flex-direction:column; gap:12px; }
+.action-item {
+  background:var(--white); border-radius:12px; padding:20px 22px;
+  box-shadow:0 2px 10px var(--shadow);
+  display:flex; gap:16px; align-items:flex-start;
+  border-left:4px solid transparent;
+  animation:revealUp 0.4s ease both;
+}
+.action-num {
+  font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300;
+  color:var(--sage-pale); line-height:1; flex-shrink:0; width:28px; text-align:right;
+}
+.action-content {}
+.action-title { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--forest); margin-bottom:4px; }
+.action-desc { font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:8px; }
+.action-impact {
+  display:inline-flex; align-items:center; gap:5px;
+  font-family:'DM Mono',monospace; font-size:10px; padding:3px 10px;
+  border-radius:12px; font-weight:500; letter-spacing:0.3px;
+}
+.impact-high { background:#e8f5e9; color:#2d7a3a; }
+.impact-mod { background:#fef3dc; color:#8a5e0a; }
+.impact-routine { background:var(--warm); color:var(--text-muted); }
+
+/* Risk colors */
+.r-low { color:#2d7a3a; }
+.r-mod { color:#d4891a; }
+.r-high { color:#c0392b; }
+.bar-low { background:#4caf50; }
+.bar-mod { background:#ff9800; }
+.bar-high { background:#e53935; }
+.border-low { border-color:#4caf50; }
+.border-mod { border-color:#ff9800; }
+.border-high { border-color:#e53935; }
+.card-border-low { border-top-color:#4caf50; }
+.card-border-mod { border-top-color:#ff9800; }
+.card-border-high { border-top-color:#e53935; }
+
+/* Health age delta colors */
+.delta-better { color:#4caf50; }
+.delta-same { color:var(--sage); }
+.delta-worse { color:#e53935; }
+
+/* CTA */
+.cta-card {
+  background:linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  border-radius:16px; padding:36px 40px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.cta-card h3 { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:var(--white); margin-bottom:6px; }
+.cta-card p { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6; }
+.cta-link {
+  background:var(--sage); color:var(--forest); border:none; padding:14px 28px;
+  border-radius:10px; font-family:'Cormorant Garamond',serif; font-size:17px;
+  font-weight:600; cursor:pointer; white-space:nowrap; text-decoration:none;
+  display:inline-block; transition:all 0.2s;
+}
+.cta-link:hover { background:var(--white); transform:translateY(-1px); }
+
+/* Sections spacing */
+.result-section { margin-bottom:48px; }
+
+.counter-banner {
+  background: var(--forest);
+  border-bottom: 1px solid rgba(122,173,138,0.2);
+  padding: 11px 48px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 13px; color: rgba(255,255,255,0.7);
+}
+.counter-icon { font-size: 16px; }
+.counter-text strong { color: var(--sage); font-weight: 700; }
+
+footer {
+  text-align:center; padding:32px 24px;
+  font-size:11px; color:var(--text-muted); line-height:1.7;
+  border-top:1px solid var(--sand);
+}
+footer strong { color:var(--forest); }
+footer a { color:var(--forest-mid); }
+
+.action-citations { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.cite-link {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:10px; font-family:'DM Mono',monospace;
+  padding:3px 9px; border-radius:5px;
+  background:var(--mint); color:var(--forest-mid);
+  border:1px solid var(--sage-pale);
+  text-decoration:none; transition:all 0.15s;
+  letter-spacing:0.2px;
+}
+.cite-link:hover { background:var(--forest); color:var(--white); border-color:var(--forest); }
+.cite-label { font-weight:600; }
+
+/* Dual CTA */
+.dual-cta { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:0; }
+.cta-individual {
+  background:linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  border-radius:16px; padding:28px 28px;
+  display:flex; flex-direction:column; gap:12px;
+}
+.cta-org {
+  background:linear-gradient(135deg, #1a2a3a 0%, #2a3a50 100%);
+  border-radius:16px; padding:28px 28px;
+  display:flex; flex-direction:column; gap:12px;
+}
+.cta-panel-tag { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; opacity:0.55; color:var(--white); }
+.cta-panel-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--white); line-height:1.2; }
+.cta-panel-desc { font-size:12px; color:rgba(255,255,255,0.6); line-height:1.6; flex:1; }
+.cta-panel-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:11px 20px; border-radius:9px;
+  font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600;
+  text-decoration:none; transition:all 0.2s; border:none; cursor:pointer;
+  letter-spacing:0.2px;
+}
+.btn-sage { background:var(--sage); color:var(--forest); }
+.btn-sage:hover { background:var(--white); transform:translateY(-1px); }
+.btn-blue { background:#4a90c4; color:var(--white); }
+.btn-blue:hover { background:#5aa0d4; transform:translateY(-1px); }
+@media(max-width:680px){ .dual-cta{grid-template-columns:1fr;} }
+
+
+.gate-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10, 20, 14, 0.88);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  animation: gateIn 0.3s ease;
+}
+@keyframes gateIn { from{opacity:0} to{opacity:1} }
+.gate-card {
+  background: var(--white);
+  border-radius: 20px;
+  max-width: 560px; width: 100%;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(10,20,14,0.4);
+  animation: gateSlide 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes gateSlide { from{opacity:0;transform:translateY(24px) scale(0.97)} to{opacity:1;transform:none} }
+.gate-header {
+  background: var(--forest);
+  padding: 28px 32px 20px;
+}
+.gate-logo { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--white); margin-bottom:4px; }
+.gate-subtitle { font-size:11px; color:var(--sage); letter-spacing:1.5px; text-transform:uppercase; }
+.gate-body { padding: 28px 32px; }
+.gate-title { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:var(--forest); margin-bottom:16px; line-height:1.2; }
+.gate-terms-box {
+  background: var(--warm);
+  border: 1.5px solid var(--sand);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  font-size: 12px; color: var(--text-muted); line-height: 1.7;
+}
+.gate-terms-box strong { color: var(--text); font-weight: 600; }
+.gate-terms-box .gate-emergency { color: var(--coral); font-weight: 600; display:block; margin-top:8px; }
+.gate-checks { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.gate-check-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 12px; border-radius: 8px;
+  border: 1.5px solid var(--sand); background: var(--cream);
+  cursor: pointer; transition: border-color 0.15s, background 0.15s;
+}
+.gate-check-row:hover { border-color: var(--forest-mid); background: var(--mint); }
+.gate-check-row input[type=checkbox] { margin-top: 2px; width: 16px; height: 16px; accent-color: var(--forest); flex-shrink:0; cursor:pointer; }
+.gate-check-label { font-size: 12px; color: var(--text-mid); line-height: 1.55; }
+.gate-check-label strong { color: var(--forest); }
+.gate-proceed-btn {
+  width: 100%; padding: 14px;
+  background: var(--sand); color: var(--text-muted);
+  border: none; border-radius: 10px;
+  font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600;
+  cursor: not-allowed; transition: all 0.2s; letter-spacing: 0.3px;
+}
+.gate-proceed-btn.ready {
+  background: var(--forest); color: var(--white);
+  cursor: pointer; box-shadow: 0 4px 20px rgba(26,58,42,0.3);
+}
+.gate-proceed-btn.ready:hover { background: var(--forest-mid); transform: translateY(-1px); }
+.gate-footer { font-size:10px; color:var(--text-muted); text-align:center; padding: 0 32px 20px; line-height:1.6; }
+
+  header,.hero,.disclaimer-strip{padding-left:20px;padding-right:20px;}
+  .fields-grid{grid-template-columns:1fr;}
+  .pillars-grid{grid-template-columns:1fr;}
+  .overall-band{grid-template-columns:1fr 1fr;}
+  .disease-grid{grid-template-columns:1fr;}
+  .lifestyle-grid{grid-template-columns:repeat(3,1fr);}
+  .age-hero{grid-template-columns:1fr;text-align:center;}
+  .age-vs{flex-direction:row;justify-content:center;}
+  .age-vs-line{width:40px;height:1px;}
+  .submit-wrap{flex-direction:column;}
+  .cta-card{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── TERMS ACCEPTANCE GATE ── -->
+<div class="gate-overlay" id="gate-overlay">
+  <div class="gate-card">
+    <div class="gate-header">
+      <div class="gate-logo">Previty Health</div>
+      <div class="gate-subtitle">Previty Method&trade; &middot; Health Assessment Tool</div>
+    </div>
+    <div class="gate-body">
+      <div class="gate-title">Before you begin, please acknowledge the following</div>
+      <div class="gate-terms-box">
+        <strong>This tool is for educational and health promotion purposes only.</strong>
+        Risk estimates are population-level calculations based on published epidemiological data &mdash; they are not personalized medical diagnoses.
+        No information you enter is transmitted, stored, or shared. Your session is entirely private and local to your browser.
+        <span class="gate-emergency">⚠ If you are experiencing a medical emergency, call 911 or go to your nearest emergency room immediately.</span>
+      </div>
+      <div class="gate-checks">
+        <label class="gate-check-row">
+          <input type="checkbox" id="chk1" onchange="checkGate()">
+          <span class="gate-check-label">I understand this tool <strong>does not create a physician-patient relationship</strong> and does not provide individualized medical advice, diagnosis, or treatment.</span>
+        </label>
+        <label class="gate-check-row">
+          <input type="checkbox" id="chk2" onchange="checkGate()">
+          <span class="gate-check-label">I understand these are <strong>population-level risk estimates</strong>, not a substitute for clinical evaluation. I will consult a licensed healthcare provider before making medical decisions.</span>
+        </label>
+        <label class="gate-check-row">
+          <input type="checkbox" id="chk3" onchange="checkGate()">
+          <span class="gate-check-label">I have read and agree to the <strong>Terms of Use and Privacy Policy</strong> for the Previty Method&trade; tool, including the limitation of liability provisions.</span>
+        </label>
+      </div>
+      <button class="gate-proceed-btn" id="gate-proceed-btn" onclick="dismissGate()" disabled>
+        I Acknowledge &mdash; Begin Assessment
+      </button>
+    </div>
+    <div class="gate-footer">
+      No name, email, or personal information is required or collected to use this tool.<br>
+      Previty Health &middot; Preventive Medicine Consulting, LLC &middot; previty.co &middot; Nevada Registered
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="logo-wrap">
+    <span class="logo-name">Previty Health</span>
+    <span class="logo-sub">Redefining Prevention</span>
+  </div>
+  <span class="header-pill">Previty Method&trade; &middot; v1.0</span>
+</header>
+
+<div class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Lifestyle Medicine &middot; Chronic Disease &middot; Health Age</div>
+    <h1>The <em>Previty</em><br>Method&trade;</h1>
+    <p class="hero-desc">Discover your 10-year risk for the 10 most common chronic diseases, your true Health Age versus biological age, and a personalized lifestyle medicine action plan &mdash; built on six pillars of evidence-based prevention.</p>
+    <div class="hero-stats">
+      <div><span class="hero-stat-val">10</span><span class="hero-stat-label">Chronic Conditions</span></div>
+      <div><span class="hero-stat-val">6</span><span class="hero-stat-label">Lifestyle Pillars</span></div>
+      <div><span class="hero-stat-val">Health Age</span><span class="hero-stat-label">vs Biological Age</span></div>
+      <div><span class="hero-stat-val">CDC</span><span class="hero-stat-label">Evidence-Based</span></div>
+    </div>
+  </div>
+</div>
+<div class="disclaimer-strip">
+  <strong>For Educational Purposes Only</strong> &middot; This tool does not create a physician-patient relationship and is not a substitute for medical advice, diagnosis, or treatment.
+  All calculations occur in your browser &mdash; no health data is transmitted or stored. &middot; <a href="#privacy" style="color:var(--sage-pale);text-decoration:underline">Privacy Policy</a>
+</div>
+
+<!-- COUNTER BANNER -->
+<div class="counter-banner" id="counter-banner">
+  <span class="counter-icon">👥</span>
+  <span class="counter-text">This tool has been used <strong id="counter-num">...</strong> times to support prevention education</span>
+</div>
+
+<div class="main">
+
+  <!-- SECTION 1: BASICS -->
+  <div class="section-head">
+    <div class="section-num">01</div>
+    <div class="section-title-wrap">
+      <div class="section-title">About You</div>
+      <div class="section-sub">Demographic and biometric information</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:36px">
+    <div class="card-body">
+      <div class="fields-grid">
+        <div class="field">
+          <label>Age (years)</label>
+          <input type="number" id="age" min="18" max="90" placeholder="e.g. 48">
+        </div>
+        <div class="field">
+          <label>Biological Sex</label>
+          <div class="select-wrap">
+            <select id="sex">
+              <option value="">&mdash; Select &mdash;</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>BMI</label>
+          <input type="number" id="bmi" step="0.1" min="15" max="60" placeholder="e.g. 26.5">
+          <span class="field-hint">Weight (kg) ÷ Height (m)²</span>
+        </div>
+        <div class="field">
+          <label>Waist Circumference (inches)</label>
+          <input type="number" id="waist" step="0.5" min="20" max="70" placeholder="e.g. 34">
+          <span class="field-hint">Measured at navel level</span>
+        </div>
+        <div class="field">
+          <label>Systolic Blood Pressure</label>
+          <input type="number" id="sbp" min="80" max="220" placeholder="e.g. 126">
+        </div>
+        <div class="field">
+          <label>Resting Heart Rate (bpm)</label>
+          <input type="number" id="hr" min="40" max="120" placeholder="e.g. 68">
+        </div>
+        <div class="field">
+          <label>Race / Ethnicity</label>
+          <div class="select-wrap">
+            <select id="race">
+              <option value="">&mdash; Select &mdash;</option>
+              <option value="white">White / Caucasian</option>
+              <option value="black">Black / African American</option>
+              <option value="hispanic">Hispanic / Latino</option>
+              <option value="asian">Asian / Pacific Islander</option>
+              <option value="native">American Indian / Alaska Native</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Education Level</label>
+          <div class="select-wrap">
+            <select id="edu">
+              <option value="">&mdash; Select &mdash;</option>
+              <option value="hs">High school or less</option>
+              <option value="some_college">Some college</option>
+              <option value="college">College degree</option>
+              <option value="grad">Graduate / Professional degree</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: LABS -->
+  <div class="section-head">
+    <div class="section-num">02</div>
+    <div class="section-title-wrap">
+      <div class="section-title">Lab Values</div>
+      <div class="section-sub">Enter recent results if available &mdash; leave blank if unknown</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:36px">
+    <div class="card-body">
+      <div class="fields-grid">
+        <div class="field">
+          <label>Fasting Glucose (mg/dL)</label>
+          <input type="number" id="glucose" min="50" max="400" placeholder="e.g. 94">
+        </div>
+        <div class="field">
+          <label>HbA1c (%)</label>
+          <input type="number" id="a1c" step="0.1" min="4" max="15" placeholder="e.g. 5.5">
+        </div>
+        <div class="field">
+          <label>Total Cholesterol (mg/dL)</label>
+          <input type="number" id="total_chol" min="100" max="400" placeholder="e.g. 190">
+        </div>
+        <div class="field">
+          <label>HDL Cholesterol (mg/dL)</label>
+          <input type="number" id="hdl" min="20" max="120" placeholder="e.g. 55">
+        </div>
+        <div class="field">
+          <label>LDL Cholesterol (mg/dL)</label>
+          <input type="number" id="ldl" min="30" max="300" placeholder="e.g. 110">
+        </div>
+        <div class="field">
+          <label>Triglycerides (mg/dL)</label>
+          <input type="number" id="trig" min="30" max="1000" placeholder="e.g. 120">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: HEALTH HISTORY -->
+  <div class="section-head">
+    <div class="section-num">03</div>
+    <div class="section-title-wrap">
+      <div class="section-title">Health History</div>
+      <div class="section-sub">Current conditions and family history</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:36px">
+    <div class="card-body">
+      <div class="fields-grid">
+        <div class="field field-full">
+          <label>Current Diagnosed Conditions (select all that apply)</label>
+          <div class="toggle-group" id="conditions">
+            <button class="tgl" data-val="htn" onclick="tm(this,'conditions')">Hypertension</button>
+            <button class="tgl" data-val="diabetes" onclick="tm(this,'conditions')">Type 2 Diabetes</button>
+            <button class="tgl" data-val="prediabetes" onclick="tm(this,'conditions')">Prediabetes</button>
+            <button class="tgl" data-val="hld" onclick="tm(this,'conditions')">High Cholesterol</button>
+            <button class="tgl" data-val="obesity" onclick="tm(this,'conditions')">Obesity</button>
+            <button class="tgl" data-val="cvd" onclick="tm(this,'conditions')">Heart Disease</button>
+            <button class="tgl" data-val="copd" onclick="tm(this,'conditions')">COPD / Asthma</button>
+            <button class="tgl" data-val="cancer_hx" onclick="tm(this,'conditions')">Prior Cancer</button>
+            <button class="tgl" data-val="depression" onclick="tm(this,'conditions')">Depression / Anxiety</button>
+            <button class="tgl" data-val="ckd" onclick="tm(this,'conditions')">Kidney Disease</button>
+            <button class="tgl" data-val="none" onclick="tm(this,'conditions')">None</button>
+          </div>
+        </div>
+        <div class="field field-full">
+          <label>Family History (first-degree relatives)</label>
+          <div class="toggle-group" id="family">
+            <button class="tgl" data-val="fam_diabetes" onclick="tm(this,'family')">Diabetes</button>
+            <button class="tgl" data-val="fam_cvd" onclick="tm(this,'family')">Heart Disease (before 65)</button>
+            <button class="tgl" data-val="fam_cancer" onclick="tm(this,'family')">Cancer</button>
+            <button class="tgl" data-val="fam_stroke" onclick="tm(this,'family')">Stroke</button>
+            <button class="tgl" data-val="fam_alzheimer" onclick="tm(this,'family')">Alzheimer's / Dementia</button>
+            <button class="tgl" data-val="fam_none" onclick="tm(this,'family')">None Known</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: LIFESTYLE PILLARS -->
+  <div class="section-head">
+    <div class="section-num">04</div>
+    <div class="section-title-wrap">
+      <div class="section-title">Lifestyle Medicine Pillars</div>
+      <div class="section-sub">Six evidence-based domains of health &mdash; the core of lifestyle medicine practice</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:36px">
+    <div class="card-body" style="padding:24px">
+      <div class="pillars-grid">
+
+        <!-- PILLAR 1: NUTRITION -->
+        <div class="pillar">
+          <div class="pillar-icon">🥦</div>
+          <div class="pillar-title">Nutrition</div>
+          <div class="field">
+            <label>Diet Pattern</label>
+            <div class="select-wrap">
+              <select id="diet_pattern">
+                <option value="">&mdash; Select &mdash;</option>
+                <option value="whole_food">Whole food plant-based / Mediterranean</option>
+                <option value="healthy">Generally healthy, mostly whole foods</option>
+                <option value="average">Average / Mixed</option>
+                <option value="processed">High processed / Fast food</option>
+                <option value="western">Western diet (high red meat, sugar, sat fat)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>Daily Vegetable Servings</label>
+            <div class="select-wrap">
+              <select id="veg">
+                <option value="">&mdash;</option>
+                <option value="4">4 or more</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="0">Less than 1</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>Added Sugar / Sugary Drinks</label>
+            <div class="toggle-group" id="sugar">
+              <button class="tgl" data-val="low" onclick="ts(this,'sugar')">Low</button>
+              <button class="tgl" data-val="mod" onclick="ts(this,'sugar')">Moderate</button>
+              <button class="tgl" data-val="high" onclick="ts(this,'sugar')">High</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PILLAR 2: PHYSICAL ACTIVITY -->
+        <div class="pillar">
+          <div class="pillar-icon">🏃</div>
+          <div class="pillar-title">Physical Activity</div>
+          <div class="field">
+            <label>Aerobic Exercise (min/week)</label>
+            <input type="number" id="cardio_min" min="0" max="600" placeholder="e.g. 150">
+          </div>
+          <div class="field">
+            <label>Strength Training</label>
+            <div class="toggle-group" id="strength">
+              <button class="tgl" data-val="2plus" onclick="ts(this,'strength')">2+/week</button>
+              <button class="tgl" data-val="1" onclick="ts(this,'strength')">1/week</button>
+              <button class="tgl" data-val="none" onclick="ts(this,'strength')">None</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Daily Sitting Hours</label>
+            <div class="select-wrap">
+              <select id="sitting">
+                <option value="">&mdash;</option>
+                <option value="lt4">Less than 4 hrs</option>
+                <option value="4to6">4&ndash;6 hrs</option>
+                <option value="6to8">6&ndash;8 hrs</option>
+                <option value="8to10">8&ndash;10 hrs</option>
+                <option value="gt10">More than 10 hrs</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- PILLAR 3: SLEEP -->
+        <div class="pillar">
+          <div class="pillar-icon">🌙</div>
+          <div class="pillar-title">Restorative Sleep</div>
+          <div class="field">
+            <label>Average Sleep Hours/Night</label>
+            <input type="number" id="sleep_hrs" min="2" max="12" step="0.5" placeholder="e.g. 7">
+          </div>
+          <div class="field">
+            <label>Sleep Quality</label>
+            <div class="toggle-group" id="sleep_qual">
+              <button class="tgl" data-val="good" onclick="ts(this,'sleep_qual')">Good</button>
+              <button class="tgl" data-val="fair" onclick="ts(this,'sleep_qual')">Fair</button>
+              <button class="tgl" data-val="poor" onclick="ts(this,'sleep_qual')">Poor</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Sleep Apnea Diagnosed?</label>
+            <div class="toggle-group" id="apnea">
+              <button class="tgl" data-val="no" onclick="ts(this,'apnea')">No</button>
+              <button class="tgl" data-val="treated" onclick="ts(this,'apnea')">Yes, treated</button>
+              <button class="tgl" data-val="untreated" onclick="ts(this,'apnea')">Yes, untreated</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PILLAR 4: STRESS -->
+        <div class="pillar">
+          <div class="pillar-icon">🧘</div>
+          <div class="pillar-title">Stress & Mental Health</div>
+          <div class="field">
+            <label>Perceived Stress Level</label>
+            <div class="toggle-group" id="stress">
+              <button class="tgl" data-val="low" onclick="ts(this,'stress')">Low</button>
+              <button class="tgl" data-val="mod" onclick="ts(this,'stress')">Moderate</button>
+              <button class="tgl" data-val="high" onclick="ts(this,'stress')">High</button>
+              <button class="tgl" data-val="very_high" onclick="ts(this,'stress')">Very High</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Mindfulness / Stress Management Practice</label>
+            <div class="toggle-group" id="mindfulness">
+              <button class="tgl" data-val="regular" onclick="ts(this,'mindfulness')">Regular</button>
+              <button class="tgl" data-val="occasional" onclick="ts(this,'mindfulness')">Occasional</button>
+              <button class="tgl" data-val="none" onclick="ts(this,'mindfulness')">None</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Mental Health / Mood (past 2 weeks)</label>
+            <div class="toggle-group" id="mood">
+              <button class="tgl" data-val="good" onclick="ts(this,'mood')">Good</button>
+              <button class="tgl" data-val="fair" onclick="ts(this,'mood')">Fair</button>
+              <button class="tgl" data-val="poor" onclick="ts(this,'mood')">Poor / Struggling</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PILLAR 5: SUBSTANCES -->
+        <div class="pillar">
+          <div class="pillar-icon">🚭</div>
+          <div class="pillar-title">Avoidance of Risky Substances</div>
+          <div class="field">
+            <label>Smoking Status</label>
+            <div class="toggle-group" id="smoking">
+              <button class="tgl" data-val="never" onclick="ts(this,'smoking')">Never</button>
+              <button class="tgl" data-val="former" onclick="ts(this,'smoking')">Former</button>
+              <button class="tgl" data-val="current" onclick="ts(this,'smoking')">Current</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Alcohol Intake</label>
+            <div class="toggle-group" id="alcohol">
+              <button class="tgl" data-val="none" onclick="ts(this,'alcohol')">None</button>
+              <button class="tgl" data-val="low" onclick="ts(this,'alcohol')">Light (1&ndash;3/wk)</button>
+              <button class="tgl" data-val="mod" onclick="ts(this,'alcohol')">Moderate (daily)</button>
+              <button class="tgl" data-val="heavy" onclick="ts(this,'alcohol')">Heavy</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Vaping / E-cigarettes</label>
+            <div class="toggle-group" id="vaping">
+              <button class="tgl" data-val="no" onclick="ts(this,'vaping')">No</button>
+              <button class="tgl" data-val="yes" onclick="ts(this,'vaping')">Yes</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PILLAR 6: RELATIONSHIPS -->
+        <div class="pillar">
+          <div class="pillar-icon">🤝</div>
+          <div class="pillar-title">Social Connection</div>
+          <div class="field">
+            <label>Social Support Quality</label>
+            <div class="toggle-group" id="social">
+              <button class="tgl" data-val="strong" onclick="ts(this,'social')">Strong</button>
+              <button class="tgl" data-val="moderate" onclick="ts(this,'social')">Moderate</button>
+              <button class="tgl" data-val="limited" onclick="ts(this,'social')">Limited</button>
+              <button class="tgl" data-val="isolated" onclick="ts(this,'social')">Isolated</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Sense of Purpose / Meaning</label>
+            <div class="toggle-group" id="purpose">
+              <button class="tgl" data-val="strong" onclick="ts(this,'purpose')">Strong</button>
+              <button class="tgl" data-val="moderate" onclick="ts(this,'purpose')">Moderate</button>
+              <button class="tgl" data-val="low" onclick="ts(this,'purpose')">Low / Unclear</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Healthcare Access & Preventive Care</label>
+            <div class="toggle-group" id="healthcare">
+              <button class="tgl" data-val="regular" onclick="ts(this,'healthcare')">Regular visits</button>
+              <button class="tgl" data-val="occasional" onclick="ts(this,'healthcare')">Occasional</button>
+              <button class="tgl" data-val="rare" onclick="ts(this,'healthcare')">Rarely / Never</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /pillars-grid -->
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-wrap">
+    <div class="submit-msg">Your results are calculated across 10 CDC-ranked chronic disease risk models and 6 lifestyle medicine pillars. The Health Age calculation compares your physiologic and behavioral risk profile against population norms.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center">
+      <button class="submit-btn" onclick="calculate()">Run My Previty Method&trade; Assessment &rarr;</button>
+      <button onclick="loadPreview()" style="
+        padding:14px 28px; border-radius:12px; border:2px solid var(--sage);
+        background:transparent; color:var(--sage);
+        font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600;
+        cursor:pointer; transition:all 0.2s; letter-spacing:0.2px;
+      " onmouseover="this.style.background='var(--mint)'" onmouseout="this.style.background='transparent'">
+        &#9654; Preview with Sample Data
+      </button>
+    </div>
+    <div id="preview-note" style="display:none;margin-top:10px;font-size:12px;color:var(--text-muted);font-style:italic;text-align:center">
+      Showing sample profile: Female, age 52, mixed lifestyle &mdash; scroll down to see results
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results">
+
+    <!-- HEALTH AGE HERO -->
+    <div style="margin-bottom:32px">
+      <div class="age-hero" id="age-hero">
+        <div class="age-panels" id="age-panels">
+          <!-- Biological Age -->
+          <div class="age-block">
+            <div class="age-label">Biological Age</div>
+            <div class="age-number" id="bio-age">&mdash;</div>
+            <div class="age-unit">years old</div>
+            <div class="age-badge" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.5)">Chronological</div>
+          </div>
+          <!-- Divider 1 -->
+          <div class="age-divider">
+            <div class="age-divider-line"></div>
+            <div class="age-divider-arrow">&rarr;</div>
+            <div class="age-divider-line"></div>
+          </div>
+          <!-- Health Age -->
+          <div class="age-block">
+            <div class="age-label">Your Health Age</div>
+            <div class="age-number" id="health-age" style="color:var(--sage)">&mdash;</div>
+            <div class="age-unit" id="age-delta-label" style="color:rgba(255,255,255,0.55)">&mdash;</div>
+            <div class="age-badge" id="health-age-badge" style="background:rgba(122,173,138,0.2);color:var(--sage)">Based on lifestyle &amp; risk</div>
+          </div>
+          <!-- Divider 2 -->
+          <div class="age-divider">
+            <div class="age-divider-line"></div>
+            <div class="age-divider-arrow" style="color:rgba(122,173,138,0.5)">&rarr;</div>
+            <div class="age-divider-line"></div>
+          </div>
+          <!-- Potential Best Age -->
+          <div class="age-block age-potential">
+            <div class="age-label" style="color:rgba(122,173,138,0.7)">Potential Best Age</div>
+            <div class="age-number" id="best-age" style="color:rgba(122,173,138,0.85)">&mdash;</div>
+            <div class="age-unit" id="best-age-label" style="color:rgba(122,173,138,0.5)">&mdash;</div>
+            <div class="age-badge" id="best-age-badge" style="background:rgba(122,173,138,0.15);color:rgba(122,173,138,0.7)">With optimal lifestyle</div>
+          </div>
+          <!-- Divider 3 -->
+          <div class="age-divider">
+            <div class="age-divider-line"></div>
+            <div class="age-divider-arrow" style="color:rgba(255,255,255,0.2)">&rarr;</div>
+            <div class="age-divider-line"></div>
+          </div>
+          <!-- Life Expectancy -->
+          <div class="age-block" style="border-left:1px solid rgba(255,255,255,0.08);padding-left:20px">
+            <div class="age-label" style="color:rgba(255,255,255,0.35)">Est. Life Expectancy</div>
+            <div style="display:flex;align-items:baseline;justify-content:center;gap:6px;margin:6px 0 4px">
+              <span id="le-current" style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:rgba(255,255,255,0.65);letter-spacing:-2px">&mdash;</span>
+              <span style="font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(255,255,255,0.3);">/</span>
+              <span id="le-optimal" style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:rgba(122,173,138,0.7);letter-spacing:-2px">&mdash;</span>
+            </div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:2px">Current &nbsp;/&nbsp; With changes</div>
+            <div id="le-gain-label" style="font-size:10px;color:rgba(122,173,138,0.55);margin-top:6px;font-style:italic">&mdash;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPLANATION PANEL -->
+      <div class="age-explain">
+        <div class="age-explain-tabs">
+          <div class="age-tab active" onclick="showAgeTab('how')">How This Is Calculated</div>
+          <div class="age-tab" onclick="showAgeTab('improve')">What Could Improve It</div>
+          <div class="age-tab" onclick="showAgeTab('longevity')">Longevity &amp; Added Years</div>
+        </div>
+
+        <!-- TAB: HOW CALCULATED -->
+        <div class="age-tab-content active" id="tab-how">
+          <div class="age-explain-text">
+            <p><strong>Health Age is not the same as your birthday.</strong> It reflects how old your body is functioning relative to population norms &mdash; based on how your lifestyle and chronic disease risk compare to people your age who follow evidence-based health behaviors.</p>
+            <p>The calculation draws on six domains from the <strong>evidence-based lifestyle medicine</strong> framework: nutrition quality, physical activity, sleep duration and quality, stress and mental health, avoidance of risky substances, and social connection. Each pillar is scored and weighted against published associations with biological aging markers (telomere length, inflammatory burden, cardiovascular function) and all-cause mortality risk.</p>
+            <p>Your <strong>disease risk profile</strong> across the 10 most common chronic conditions also factors in &mdash; because elevated disease risk is both a consequence of accelerated aging and a driver of further physiologic decline.</p>
+            <p><em>Your Health Age can be younger or older than your biological age depending on your inputs. It is an educational estimate based on population data, not a clinical measurement. Validated biomarker-based biological age tests (epigenetic clocks, telomere length assays) are available through specialty labs if you want a clinical-grade measurement.</em></p>
+            <p><strong>Life Expectancy estimates</strong> are derived from CDC National Vital Statistics 2022 US life tables, adjusted for your current age (conditional life expectancy) and modified by your health age delta. The &ldquo;With changes&rdquo; figure reflects what the evidence suggests is achievable with your specific improvement opportunities. These are population-level estimates for educational context only &mdash; individual outcomes vary significantly.</p>
+          </div>
+        </div>
+
+        <!-- TAB: WHAT COULD IMPROVE -->
+        <div class="age-tab-content" id="tab-improve">
+          <div class="optimal-path" id="optimal-path">
+            <!-- Populated by JS -->
+          </div>
+          <p style="font-size:11px;color:var(--text-muted);margin-top:16px;line-height:1.6;font-style:italic">Estimates are based on published lifestyle intervention literature. Individual results vary. These represent population-average effects, not guarantees. Speak with your physician before making major lifestyle changes.</p>
+        </div>
+
+        <!-- TAB: LONGEVITY & ADDED YEARS -->
+        <div class="age-tab-content" id="tab-longevity">
+          <div class="age-explain-text" style="margin-bottom:16px">
+            <p>Research consistently shows that <strong>modifiable lifestyle factors account for 70&ndash;80% of the variance in healthy lifespan</strong> &mdash; far more than genetics alone. The table below shows the estimated years of healthy life associated with each lifestyle factor, drawn from large prospective cohort studies and meta-analyses.</p>
+          </div>
+          <table class="longevity-table" id="longevity-table">
+            <thead>
+              <tr>
+                <th>Lifestyle Factor</th>
+                <th>Population Evidence</th>
+                <th>Est. Years of Healthy Life</th>
+                <th class="gain-bar-cell">Impact Scale</th>
+                <th>Your Status</th>
+              </tr>
+            </thead>
+            <tbody id="longevity-tbody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+          <p style="font-size:10px;color:var(--text-muted);margin-top:14px;line-height:1.6">Sources: Li et al. (Circulation, 2018) &mdash; 5 healthy habits + 12&ndash;14 years. Holt-Lunstad (2015) &mdash; social isolation mortality. Lee et al. NEJM (2012) &mdash; exercise and mortality. NIA Blue Zones research. Effects are not simply additive; overlapping mechanisms reduce total sum. Talk to your physician about what changes are most appropriate for you.</p>
+        </div>
+      </div>
+    </div><!-- /health age wrap -->
+
+    <!-- OVERALL SCORES -->
+    <div class="overall-band" id="overall-band"></div>
+
+    <!-- DISEASE RISKS -->
+    <div class="result-section">
+      <div class="section-head">
+        <div class="section-num" style="color:var(--sand)">05</div>
+        <div class="section-title-wrap">
+          <div class="section-title">10-Year Disease Risk Profile</div>
+          <div class="section-sub">CDC Top 10 Chronic Conditions &middot; Evidence-based risk estimates</div>
+        </div>
+      </div>
+      <div class="disease-grid" id="disease-grid"></div>
+    </div>
+
+    <!-- LIFESTYLE SCORECARD -->
+    <div class="result-section">
+      <div class="section-head">
+        <div class="section-num" style="color:var(--sand)">06</div>
+        <div class="section-title-wrap">
+          <div class="section-title">Lifestyle Medicine Scorecard</div>
+          <div class="section-sub">Your performance across the 6 pillars of lifestyle medicine</div>
+        </div>
+      </div>
+      <div class="lifestyle-grid" id="lifestyle-grid"></div>
+    </div>
+
+    <!-- ACTION PLAN -->
+    <div class="result-section">
+      <div class="section-head">
+        <div class="section-num" style="color:var(--sand)">07</div>
+        <div class="section-title-wrap">
+          <div class="section-title">Your Prevention Action Plan</div>
+          <div class="section-sub">Prioritized interventions to reduce your Health Age and disease risk</div>
+        </div>
+      </div>
+      <div class="actions-wrap" id="actions-wrap"></div>
+    </div>
+
+    <!-- DUAL CTA -->
+    <div class="dual-cta">
+      <div class="cta-individual">
+        <div class="cta-panel-tag">For Individuals</div>
+        <div class="cta-panel-title">Talk to your physician about your results</div>
+        <div class="cta-panel-desc">Your primary care provider is your best partner for translating this assessment into a personalized plan. They can review your full health history, order appropriate labs and screenings, and discuss lifestyle and medical options that are right for you.</div>
+        <a href="https://find-doctor.ama-assn.org/" class="cta-panel-btn btn-sage" target="_blank">Find a Doctor (AMA) &rarr;</a>
+      </div>
+      <div class="cta-org">
+        <div class="cta-panel-tag">For Organizations</div>
+        <div class="cta-panel-title">Bring preventive medicine to your population</div>
+        <div class="cta-panel-desc">Previty Health designs custom chronic disease preventive programs, risk stratification models, and lifestyle medicine workflows for health plans, health systems, and digital health companies &mdash; at scale.</div>
+        <a href="https://previty.co/advising" class="cta-panel-btn btn-blue" target="_blank">Work with Previty &rarr;</a>
+      </div>
+    </div>
+
+  </div><!-- /results -->
+
+  <!-- PRIVACY POLICY SECTION -->
+  <div id="privacy" style="max-width:900px;margin:0 auto 60px;padding:0 24px;">
+    <div style="background:var(--white);border-radius:16px;box-shadow:0 2px 20px var(--shadow);padding:40px 44px;border-top:4px solid var(--forest)">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--forest);margin-bottom:6px">Privacy Policy</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:28px;font-style:italic">Previty Method&trade; Health Assessment Tool &middot; Effective March 2026 &middot; Updated periodically to reflect current evidence</div>
+
+      <div style="font-size:13px;color:var(--text-mid);line-height:1.8;display:flex;flex-direction:column;gap:20px">
+        <div><strong style="color:var(--forest);font-size:14px">No Data Collection or Storage</strong><br>
+        The Previty Method&trade; Tool does not collect, transmit, store, or retain any personal health information. All calculations occur entirely within your web browser. No information you enter is ever sent to our servers, stored in a database, or shared with any third party. Because no health data is transmitted, this Tool is not subject to HIPAA as a covered entity.</div>
+
+        <div><strong style="color:var(--forest);font-size:14px">No Doctor-Patient Relationship</strong><br>
+        Your use of this Tool does not create a physician-patient relationship with Previty Health, Preventive Medicine Consulting, LLC, or any clinician or affiliated individual. This Tool is an educational resource only. No output constitutes individualized medical advice, diagnosis, or treatment recommendation. <strong style="color:var(--coral)">If you are experiencing a medical emergency, call 911 or go to your nearest emergency room immediately.</strong></div>
+
+        <div><strong style="color:var(--forest);font-size:14px">For Educational Purposes Only</strong><br>
+        Risk estimates are derived from population-level epidemiological data and validated models (CDC, Framingham, ADA). They are not individualized predictions and should not be used as the basis for medical decision-making without consulting a licensed healthcare provider.</div>
+
+        <div><strong style="color:var(--forest);font-size:14px">Usage Analytics</strong><br>
+        The Tool collects only anonymous, aggregate usage counts (total number of assessments completed) to measure its public health educational impact. This data contains no personal or health information and is not sold or shared with third parties.</div>
+
+        <div><strong style="color:var(--forest);font-size:14px">Privacy &amp; Applicable Law</strong><br>
+        This Tool is operated by Preventive Medicine Consulting, LLC, a Nevada registered limited liability company. The Tool does not collect personal information as defined under applicable privacy law. Residents of California and other states with comprehensive privacy statutes may have additional rights regarding any information shared through direct contact. Contact us at previty.co.</div>
+
+        <div style="font-size:11px;color:var(--text-muted);padding-top:8px;border-top:1px solid var(--sand)">
+        Previty Method&trade; is a trademark of Preventive Medicine Consulting, LLC (registration pending). Governed by the laws of the State of Nevada. &copy; 2026 Preventive Medicine Consulting, LLC. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>Previty Health</strong> &middot; Preventive Medicine Consulting, LLC &middot; <a href="https://previty.co">previty.co</a><br>
+  <strong>For educational purposes only.</strong> This tool does not create a physician-patient relationship and is not a substitute for medical advice, diagnosis, or treatment.<br>
+  Risk estimates are derived from CDC chronic disease burden data, Framingham, ADA Diabetes Risk Score, and lifestyle medicine literature. Health Age is an estimate based on population norms.<br>
+  Previty Method&trade; is a trademark of Preventive Medicine Consulting, LLC, a Nevada registered LLC (registration pending).<br>
+  &copy; 2026 Preventive Medicine Consulting, LLC. All rights reserved. &middot; <a href="#privacy">Privacy Policy</a>
+</footer>
+
+<script>
+// ── TERMS GATE ──
+function checkGate() {
+  const allChecked = ['chk1','chk2','chk3'].every(id => document.getElementById(id)?.checked);
+  const btn = document.getElementById('gate-proceed-btn');
+  btn.disabled = !allChecked;
+  btn.classList.toggle('ready', allChecked);
+}
+function dismissGate() {
+  const overlay = document.getElementById('gate-overlay');
+  overlay.style.opacity = '0';
+  overlay.style.transition = 'opacity 0.3s ease';
+  setTimeout(() => overlay.style.display = 'none', 300);
+  // Store acceptance so gate doesn't re-show on same session
+  try { sessionStorage.setItem('previty_terms_accepted', '1'); } catch(e) {}
+}
+// If already accepted this session, skip gate
+try {
+  if (sessionStorage.getItem('previty_terms_accepted') === '1') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.getElementById('gate-overlay');
+      if (overlay) overlay.style.display = 'none';
+    });
+  }
+} catch(e) {}
+
+// ── AGE EXPLANATION TABS ──
+function showAgeTab(id) {
+  document.querySelectorAll('.age-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.age-tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  // Match tab button by position
+  const tabMap = { how: 0, improve: 1, longevity: 2 };
+  document.querySelectorAll('.age-tab')[tabMap[id]]?.classList.add('active');
+}
+
+// ── STATE ──
+const S = {
+  conditions: new Set(), family: new Set(),
+  sugar:null, strength:null, sleep_qual:null, apnea:null,
+  stress:null, mindfulness:null, mood:null,
+  smoking:null, alcohol:null, vaping:null,
+  social:null, purpose:null, healthcare:null
+};
+
+function tm(btn, group) { // toggle multi
+  const val = btn.dataset.val;
+  if (val === 'none' || val === 'fam_none') {
+    document.querySelectorAll(`#${group} .tgl`).forEach(b=>b.classList.remove('on'));
+    S[group].clear(); btn.classList.add('on'); S[group].add(val); return;
+  }
+  document.querySelector(`#${group} .tgl[data-val="none"]`)?.classList.remove('on'); S[group].delete('none');
+  document.querySelector(`#${group} .tgl[data-val="fam_none"]`)?.classList.remove('on'); S[group].delete('fam_none');
+  btn.classList.contains('on') ? (btn.classList.remove('on'), S[group].delete(val)) : (btn.classList.add('on'), S[group].add(val));
+}
+function ts(btn, key) { // toggle single
+  document.querySelectorAll(`#${key} .tgl`).forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); S[key] = btn.dataset.val;
+}
+
+// ── HELPERS ──
+const has = v => S.conditions.has(v);
+const fam = v => S.family.has(v);
+const g = id => { const el=document.getElementById(id); return el ? (el.value||'') : ''; };
+const gn = id => parseFloat(g(id)) || 0;
+const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+const pct = (score, max) => Math.round(clamp(score/max*100,1,98));
+
+// ── LIFESTYLE PILLAR SCORES (0&ndash;10 each) ──
+function scoreNutrition() {
+  let s = 5;
+  const dp = g('diet_pattern');
+  if (dp==='whole_food') s+=4; else if (dp==='healthy') s+=2; else if (dp==='average') s+=0; else if (dp==='processed') s-=2; else if (dp==='western') s-=3;
+  const veg = parseInt(g('veg'))||0;
+  if (veg>=4) s+=2; else if (veg>=3) s+=1; else if (veg<=1) s-=1;
+  if (S.sugar==='low') s+=1; else if (S.sugar==='high') s-=2;
+  return clamp(s,0,10);
+}
+
+function scoreActivity() {
+  let s = 0;
+  const min = gn('cardio_min');
+  if (min>=300) s=10; else if (min>=150) s=8; else if (min>=90) s=6; else if (min>=45) s=4; else if (min>0) s=2; else s=0;
+  if (S.strength==='2plus') s=Math.min(s+1.5,10); else if (S.strength==='1') s=Math.min(s+0.5,10);
+  const sit = g('sitting');
+  if (sit==='gt10') s=Math.max(s-2,0); else if (sit==='8to10') s=Math.max(s-1,0);
+  return clamp(s,0,10);
+}
+
+function scoreSleep() {
+  let s = 5;
+  const hrs = gn('sleep_hrs');
+  if (hrs>=7&&hrs<=9) s=9; else if (hrs>=6&&hrs<7) s=6; else if (hrs>9&&hrs<=10) s=7; else if (hrs<6||hrs>10) s=3;
+  if (S.sleep_qual==='good') s=Math.min(s+1,10); else if (S.sleep_qual==='fair') {} else if (S.sleep_qual==='poor') s=Math.max(s-2,0);
+  if (S.apnea==='untreated') s=Math.max(s-3,0); else if (S.apnea==='treated') s=Math.max(s-1,0);
+  return clamp(s,0,10);
+}
+
+function scoreStress() {
+  let s = 8;
+  if (S.stress==='low') s=9; else if (S.stress==='mod') s=6; else if (S.stress==='high') s=3; else if (S.stress==='very_high') s=1;
+  if (S.mindfulness==='regular') s=Math.min(s+1,10); else if (S.mindfulness==='none') s=Math.max(s-1,0);
+  if (S.mood==='poor') s=Math.max(s-2,0); else if (S.mood==='good') s=Math.min(s+0.5,10);
+  return clamp(s,0,10);
+}
+
+function scoreSubstances() {
+  let s = 10;
+  if (S.smoking==='current') s-=4; else if (S.smoking==='former') s-=1;
+  if (S.alcohol==='heavy') s-=3; else if (S.alcohol==='mod') s-=1;
+  if (S.vaping==='yes') s-=2;
+  return clamp(s,0,10);
+}
+
+function scoreSocial() {
+  let s = 7;
+  if (S.social==='strong') s+=2; else if (S.social==='limited') s-=1; else if (S.social==='isolated') s-=3;
+  if (S.purpose==='strong') s+=1; else if (S.purpose==='low') s-=1;
+  if (S.healthcare==='regular') s+=1; else if (S.healthcare==='rare') s-=1;
+  return clamp(s,0,10);
+}
+
+// ── DISEASE RISK MODELS ──
+function calcDiseases(age, sex, bmi, sbp, waist, glucose, a1c, totalChol, hdl, ldl, trig, hr, race) {
+  const isMale = sex==='male';
+  const smoking = S.smoking==='current';
+  const activity = scoreActivity();
+  const nutrition = scoreNutrition();
+  const sleep = scoreSleep();
+  const stressScore = scoreStress();
+  const isHispanic = race==='hispanic', isBlack=race==='black', isNative=race==='native', isAsian=race==='asian';
+
+  const diseases = [];
+
+  // 1. HEART DISEASE & STROKE (CDC #1 killer)
+  {
+    let r = 3;
+    if (age>=65) r+=10; else if (age>=55) r+=7; else if (age>=45) r+=4;
+    if (isMale) r+=3;
+    if (sbp>140) r+=8; else if (sbp>130) r+=4;
+    if (has('htn')) r+=5;
+    if (totalChol>240) r+=5; else if (totalChol>200) r+=2;
+    if (hdl&&hdl<40) r+=4; else if (hdl&&hdl>60) r-=3;
+    if (ldl>160) r+=4; else if (ldl>130) r+=2;
+    if (smoking) r+=6;
+    if (has('diabetes')) r+=5;
+    if (fam('fam_cvd')) r+=5;
+    if (bmi>=30) r+=3;
+    if (activity<4) r+=3;
+    if (has('cvd')) r+=8;
+    if (isBlack) r+=3;
+    r -= (nutrition-5)*0.5;
+    diseases.push({ name:'Heart Disease & Stroke', icon:'❤️', rank:'CDC #1', risk:clamp(r,2,65),
+      drivers: buildDrivers([
+        [sbp>130||has('htn'),'High blood pressure','chip-risk'],
+        [totalChol>200||ldl>130,'Elevated cholesterol','chip-risk'],
+        [smoking,'Smoking','chip-risk'],
+        [fam('fam_cvd'),'Family history','chip-risk'],
+        [has('diabetes'),'Diabetes','chip-risk'],
+        [activity>=7,'Active lifestyle','chip-protective'],
+        [hdl&&hdl>60,'Healthy HDL','chip-protective'],
+        [nutrition>=7,'Healthy diet','chip-protective'],
+      ]),
+      action: 'Target BP <130/80, LDL-C <70 if high risk, 150+ min/week aerobic exercise, Mediterranean diet pattern.' });
+  }
+
+  // 2. TYPE 2 DIABETES
+  {
+    let r = 2;
+    if (age>=60) r+=8; else if (age>=50) r+=5; else if (age>=40) r+=3;
+    if (bmi>=35) r+=14; else if (bmi>=30) r+=10; else if (bmi>=25) r+=5;
+    if (waist&&isMale&&waist>40) r+=5; else if (waist&&!isMale&&waist>35) r+=5;
+    if (fam('fam_diabetes')) r+=4;
+    if (has('prediabetes')) r+=12;
+    if (glucose>=100&&glucose<126) r+=10; else if (glucose>=126) r+=16;
+    if (a1c>=5.7&&a1c<6.5) r+=10; else if (a1c>=6.5) r+=18;
+    if (has('htn')) r+=3;
+    if (activity<4) r+=3;
+    if (isHispanic||isBlack||isNative) r+=3;
+    if (nutrition<=4) r+=3;
+    if (sleep<5) r+=2;
+    if (has('diabetes')) r=95;
+    diseases.push({ name:'Type 2 Diabetes', icon:'🩸', rank:'CDC #7', risk:clamp(has('diabetes')?95:r,1,90),
+      drivers: buildDrivers([
+        [bmi>=25,'Elevated BMI','chip-risk'],
+        [has('prediabetes')||glucose>=100,'Elevated glucose','chip-risk'],
+        [fam('fam_diabetes'),'Family history','chip-risk'],
+        [activity<4,'Low activity','chip-risk'],
+        [has('htn'),'Hypertension','chip-risk'],
+        [activity>=7,'Regular exercise (58% risk reduction)','chip-protective'],
+        [bmi<25,'Healthy weight','chip-protective'],
+      ]),
+      action: 'CDC DPP program reduces risk 58% with 7% weight loss + 150 min/week activity. Mediterranean diet lowers A1c.' });
+  }
+
+  // 3. CANCER (all-sites)
+  {
+    let r = 5;
+    if (age>=65) r+=12; else if (age>=55) r+=8; else if (age>=45) r+=5;
+    if (smoking) r+=12;
+    if (bmi>=30) r+=4;
+    if (alcohol==='heavy'||S.alcohol==='heavy') r+=4; else if (S.alcohol==='mod') r+=1;
+    if (fam('fam_cancer')) r+=6;
+    if (has('cancer_hx')) r+=10;
+    if (nutrition<=4) r+=3;
+    if (activity>=7) r-=4;
+    if (nutrition>=7) r-=2;
+    diseases.push({ name:'Cancer (All-Sites)', icon:'🎗️', rank:'CDC #2', risk:clamp(r,3,60),
+      drivers: buildDrivers([
+        [smoking,'Tobacco use (30% of cancers)','chip-risk'],
+        [bmi>=30,'Obesity','chip-risk'],
+        [S.alcohol==='heavy'||S.alcohol==='mod','Alcohol use','chip-risk'],
+        [fam('fam_cancer'),'Family history','chip-risk'],
+        [activity>=7,'Regular exercise','chip-protective'],
+        [nutrition>=7,'Anti-inflammatory diet','chip-protective'],
+        [S.healthcare==='regular','Regular cancer screenings','chip-protective'],
+      ]),
+      action: 'Tobacco cessation, limit alcohol, maintain healthy weight, USPSTF cancer screenings up to date.' });
+  }
+
+  // 4. COPD / CHRONIC RESPIRATORY
+  {
+    let r = 2;
+    if (smoking) r+=18;
+    if (S.smoking==='former') r+=6;
+    if (age>=55) r+=5; else if (age>=45) r+=2;
+    if (has('copd')) r+=20;
+    if (activity<4) r+=2;
+    if (bmi>=35) r+=2;
+    diseases.push({ name:'COPD / Lung Disease', icon:'🫁', rank:'CDC #4', risk:clamp(r,1,65),
+      drivers: buildDrivers([
+        [smoking,'Current smoking','chip-risk'],
+        [S.smoking==='former','Former smoking history','chip-risk'],
+        [has('copd'),'Existing lung disease','chip-risk'],
+        [S.smoking==='never','Never smoked','chip-protective'],
+        [activity>=6,'Physical activity preserves lung function','chip-protective'],
+      ]),
+      action: 'Smoking cessation is the single most effective intervention. Pulmonary rehab for existing COPD. Flu/pneumonia vaccines.' });
+  }
+
+  // 5. OBESITY & METABOLIC SYNDROME
+  {
+    let r = 0;
+    if (bmi>=40) r=90; else if (bmi>=35) r=70; else if (bmi>=30) r=50; else if (bmi>=25) r=25; else r=5;
+    if (waist&&isMale&&waist>40) r=Math.max(r,50); else if (waist&&!isMale&&waist>35) r=Math.max(r,50);
+    if (nutrition<=4) r+=10;
+    if (activity<4) r+=10;
+    if (sleep<5) r+=5;
+    if (S.stress==='very_high'||S.stress==='high') r+=5;
+    diseases.push({ name:'Obesity & Metabolic Syndrome', icon:'⚖️', rank:'CDC #5', risk:clamp(r,2,95),
+      drivers: buildDrivers([
+        [bmi>=30||has('obesity'),'Elevated BMI / obesity','chip-risk'],
+        [nutrition<=4,'Poor diet quality','chip-risk'],
+        [activity<4,'Sedentary behavior','chip-risk'],
+        [sleep<6,'Inadequate sleep','chip-risk'],
+        [bmi<25,'Healthy weight','chip-protective'],
+        [activity>=7,'Regular physical activity','chip-protective'],
+      ]),
+      action: '5&ndash;10% weight loss improves all metabolic markers. Whole-food plant-based or Mediterranean diet + structured activity.' });
+  }
+
+  // 6. ALZHEIMER'S & DEMENTIA
+  {
+    let r = 2;
+    if (age>=75) r+=20; else if (age>=65) r+=12; else if (age>=55) r+=5;
+    if (fam('fam_alzheimer')) r+=8;
+    if (sleep<5) r+=5; else if (S.sleep_qual==='poor') r+=3;
+    if (activity<4) r+=5;
+    if (has('diabetes')) r+=5;
+    if (has('htn')) r+=3;
+    if (has('depression')) r+=4;
+    if (g('edu')==='hs') r+=4; else if (g('edu')==='grad') r-=3;
+    if (S.social==='isolated') r+=5;
+    if (S.smoking==='current') r+=3;
+    if (activity>=7) r-=5;
+    if (sleep>=7&&sleep<=9) r-=3;
+    diseases.push({ name:"Alzheimer's & Dementia", icon:'🧠', rank:'CDC #6', risk:clamp(r,1,55),
+      drivers: buildDrivers([
+        [fam('fam_alzheimer'),'Family history','chip-risk'],
+        [age>=65,'Age (primary risk factor)','chip-risk'],
+        [sleep<6||S.sleep_qual==='poor','Poor sleep (beta-amyloid clearance)','chip-risk'],
+        [S.social==='isolated','Social isolation','chip-risk'],
+        [activity>=7,'Exercise (reduces risk 30-45%)','chip-protective'],
+        [sleep>=7,'Adequate sleep (7&ndash;9 hrs)','chip-protective'],
+        [S.social==='strong','Strong social connections','chip-protective'],
+      ]),
+      action: '150+ min/week aerobic exercise, 7&ndash;9 hrs sleep, cognitive engagement, social connection, MIND diet pattern.' });
+  }
+
+  // 7. KIDNEY DISEASE (CKD)
+  {
+    let r = 2;
+    if (has('diabetes')) r+=20;
+    if (has('htn')) r+=12;
+    if (age>=65) r+=8;
+    if (has('cvd')) r+=5;
+    if (has('ckd')) r+=30;
+    if (isBlack||isHispanic) r+=4;
+    if (bmi>=35) r+=3;
+    diseases.push({ name:'Chronic Kidney Disease', icon:'🫘', rank:'CDC #9', risk:clamp(r,1,65),
+      drivers: buildDrivers([
+        [has('diabetes'),'Diabetes (leading CKD cause)','chip-risk'],
+        [has('htn'),'Hypertension','chip-risk'],
+        [has('ckd'),'Existing kidney disease','chip-risk'],
+        [isBlack||isHispanic,'Elevated population risk','chip-risk'],
+        [!has('diabetes')&&!has('htn'),'No major risk factors','chip-protective'],
+      ]),
+      action: 'BP control to <130/80, blood glucose management, annual eGFR/uACR screening if diabetic or hypertensive, avoid NSAIDs.' });
+  }
+
+  // 8. DEPRESSION & MENTAL HEALTH
+  {
+    let r = 5;
+    if (S.stress==='very_high') r+=15; else if (S.stress==='high') r+=10;
+    if (S.mood==='poor') r+=20;
+    if (has('depression')) r+=15;
+    if (S.social==='isolated') r+=10; else if (S.social==='limited') r+=5;
+    if (S.sleep_qual==='poor'||sleep<6) r+=7;
+    if (activity<4) r+=5;
+    if (S.purpose==='low') r+=5;
+    if (activity>=7) r-=5;
+    if (S.social==='strong') r-=5;
+    if (S.mindfulness==='regular') r-=3;
+    diseases.push({ name:'Depression & Mental Health', icon:'🌿', rank:'CDC #8', risk:clamp(r,2,75),
+      drivers: buildDrivers([
+        [S.stress==='high'||S.stress==='very_high','High perceived stress','chip-risk'],
+        [S.social==='isolated'||S.social==='limited','Limited social connection','chip-risk'],
+        [S.mood==='poor','Current mood struggles','chip-risk'],
+        [activity>=7,'Exercise (as effective as medication for mild-mod)','chip-protective'],
+        [S.social==='strong','Strong social support','chip-protective'],
+        [S.mindfulness==='regular','Regular mindfulness practice','chip-protective'],
+      ]),
+      action: 'Physical activity shown as effective as medication for mild-moderate depression. CBT, social engagement, sleep hygiene.' });
+  }
+
+  // 9. LIVER DISEASE & NAFLD
+  {
+    let r = 2;
+    if (bmi>=30) r+=15; else if (bmi>=25) r+=7;
+    if (has('diabetes')) r+=10;
+    if (S.alcohol==='heavy') r+=20; else if (S.alcohol==='mod') r+=5;
+    if (trig>200) r+=8; else if (trig>150) r+=4;
+    if (nutrition<=4) r+=5;
+    if (isHispanic) r+=3;
+    diseases.push({ name:'Liver Disease / NAFLD', icon:'🫁', rank:'CDC #10', risk:clamp(r,1,65),
+      drivers: buildDrivers([
+        [bmi>=25,'Overweight / obesity (NAFLD driver)','chip-risk'],
+        [has('diabetes'),'Insulin resistance','chip-risk'],
+        [S.alcohol==='heavy'||S.alcohol==='mod','Alcohol use','chip-risk'],
+        [trig>150,'Elevated triglycerides','chip-risk'],
+        [bmi<25,'Healthy weight','chip-protective'],
+        [nutrition>=7,'Low-sugar, high-fiber diet','chip-protective'],
+      ]),
+      action: 'Weight loss 7&ndash;10% reverses early NAFLD. Eliminate added sugar/fructose. Limit or eliminate alcohol. Mediterranean diet.' });
+  }
+
+  // 10. MUSCULOSKELETAL / OSTEOPOROSIS / ARTHRITIS
+  {
+    let r = 3;
+    if (age>=60) r+=12; else if (age>=50) r+=6;
+    if (!isMale) r+=8;
+    if (bmi>=30) r+=5;
+    if (activity<4) r+=6;
+    if (S.smoking==='current') r+=3;
+    if (S.alcohol==='heavy') r+=3;
+    if (nutrition<=4) r+=3;
+    if (activity>=7&&S.strength==='2plus') r-=5;
+    diseases.push({ name:'Osteoporosis & Arthritis', icon:'🦴', rank:'CDC #3', risk:clamp(r,2,65),
+      drivers: buildDrivers([
+        [age>=50,'Age-related bone/joint decline','chip-risk'],
+        [!isMale,'Female sex (osteoporosis risk)','chip-risk'],
+        [activity<4,'Sedentary lifestyle','chip-risk'],
+        [S.smoking==='current','Smoking (reduces bone density)','chip-risk'],
+        [activity>=6&&S.strength==='2plus','Weight-bearing & resistance training','chip-protective'],
+        [nutrition>=6,'Calcium-rich diet pattern','chip-protective'],
+      ]),
+      action: 'Weight-bearing exercise 3&ndash;4x/week + resistance training 2x/week. Adequate calcium (1200mg/day) + vitamin D. DEXA scan if indicated.' });
+  }
+
+  return diseases;
+}
+
+function buildDrivers(items) {
+  return items.filter(([condition])=>condition).map(([,label,cls])=>({label,cls}));
+}
+
+// ── HEALTH AGE CALCULATION ──
+function calcHealthAge(age, pillarScores, diseases) {
+  const avgPillar = pillarScores.reduce((a,b)=>a+b,0)/pillarScores.length;
+  const avgDisease = diseases.reduce((a,b)=>a+b.risk,0)/diseases.length;
+
+  // ── CURRENT HEALTH AGE DELTA ──
+  let ageDelta = 0;
+  ageDelta += (5 - avgPillar) * 0.8;         // lifestyle impact
+  ageDelta += (avgDisease - 15) * 0.12;       // disease risk impact
+  if (S.smoking==='current')    ageDelta += 4;
+  if (S.smoking==='former')     ageDelta += 1.5;
+  if (S.alcohol==='heavy')      ageDelta += 2;
+  if (S.social==='isolated')    ageDelta += 2;
+  if (gn('sleep_hrs')<6)        ageDelta += 1.5;
+  if (scoreActivity()>=8)       ageDelta -= 3;
+  if (gn('bmi')>=35)            ageDelta += 3;
+  if (gn('bmi')<25&&gn('bmi')>18) ageDelta -= 1;
+  if (S.stress==='very_high')   ageDelta += 2;
+  if (S.mindfulness==='regular') ageDelta -= 1;
+  if (S.purpose==='strong'&&S.social==='strong') ageDelta -= 1.5;
+
+  ageDelta = Math.round(ageDelta * 10) / 10;
+  const healthAge = Math.round(age + ageDelta);
+
+  // ── BEST ACHIEVABLE DELTA (if all realistic improvements made) ──
+  // Each factor: best realistic outcome for THIS person given their inputs
+  let bestDelta = ageDelta;
+
+  // Tobacco cessation: +4 to +6 years recoverable (current smoker)
+  const smokingGain = S.smoking==='current' ? 4.5 : S.smoking==='former' ? 1.0 : 0;
+  bestDelta -= smokingGain;
+
+  // Exercise: up to -3 if currently low, already credited if high
+  const actScore = scoreActivity();
+  const actGain = actScore < 4 ? 2.5 : actScore < 7 ? 1.0 : 0;
+  bestDelta -= actGain;
+
+  // Nutrition: up to -2
+  const nutScore = pillarScores[0];
+  const nutGain = nutScore < 4 ? 1.8 : nutScore < 6 ? 0.8 : 0;
+  bestDelta -= nutGain;
+
+  // Sleep: up to -1.5
+  const slpScore = pillarScores[2];
+  const slpGain = slpScore < 5 ? 1.5 : slpScore < 7 ? 0.7 : 0;
+  bestDelta -= slpGain;
+
+  // Stress: up to -1.5
+  const strScore = pillarScores[3];
+  const strGain = strScore < 4 ? 1.5 : strScore < 6 ? 0.6 : 0;
+  bestDelta -= strGain;
+
+  // Social: up to -2
+  const socScore = pillarScores[5];
+  const socGain = S.social==='isolated' ? 2.0 : S.social==='limited' ? 1.0 : 0;
+  bestDelta -= socGain;
+
+  // Alcohol: up to -1.5
+  const alcGain = S.alcohol==='heavy' ? 1.5 : S.alcohol==='mod' ? 0.5 : 0;
+  bestDelta -= alcGain;
+
+  // Weight: up to -2
+  const bmi = gn('bmi');
+  const wgtGain = bmi>=35 ? 2.0 : bmi>=30 ? 1.2 : bmi>=25 ? 0.5 : 0;
+  bestDelta -= wgtGain;
+
+  bestDelta = Math.round(bestDelta * 10) / 10;
+  const bestAge = Math.round(age + bestDelta);
+  const potentialImprovement = Math.round((ageDelta - bestDelta) * 10) / 10;
+
+  // ── LONGEVITY TABLE DATA ──
+  const longevityRows = [
+    {
+      factor: 'Never smoking / Cessation',
+      evidence: 'Li et al., Circulation 2018 &middot; Doll et al. BMJ 2004',
+      years: '8&ndash;10',
+      maxYrs: 10,
+      applicable: S.smoking !== 'never',
+      current: S.smoking==='never' ? 'Non-smoker &#10003;' : S.smoking==='current' ? 'Current smoker' : 'Former smoker'
+    },
+    {
+      factor: 'Regular physical activity (150+ min/wk)',
+      evidence: 'Lee et al., NEJM 2012 &middot; Arem et al., JAMA IM 2015',
+      years: '3&ndash;7',
+      maxYrs: 7,
+      applicable: actScore < 7,
+      current: actScore>=8 ? 'Active &#10003;' : actScore>=6 ? 'Moderate activity' : 'Low activity'
+    },
+    {
+      factor: 'Healthy diet (Mediterranean / plant-forward)',
+      evidence: 'Sotos-Prieto et al., NEJM 2017 &middot; PREDIMED trial',
+      years: '2&ndash;4',
+      maxYrs: 4,
+      applicable: nutScore < 7,
+      current: nutScore>=7 ? 'Healthy diet &#10003;' : nutScore>=5 ? 'Average diet' : 'Poor diet quality'
+    },
+    {
+      factor: 'Healthy body weight (BMI 18.5&ndash;24.9)',
+      evidence: 'Global BMI Mortality Collaboration, Lancet 2016',
+      years: '1.5&ndash;3',
+      maxYrs: 3,
+      applicable: bmi>=25,
+      current: bmi<25 ? 'Healthy weight &#10003;' : bmi<30 ? 'Overweight' : 'Obese'
+    },
+    {
+      factor: '7&ndash;9 hours quality sleep',
+      evidence: 'Liu et al., Sleep Medicine Reviews 2017',
+      years: '2&ndash;4',
+      maxYrs: 4,
+      applicable: slpScore < 7,
+      current: slpScore>=7 ? 'Good sleep &#10003;' : slpScore>=5 ? 'Fair sleep' : 'Poor sleep'
+    },
+    {
+      factor: 'Strong social connections',
+      evidence: 'Holt-Lunstad, Perspectives Psych Sci 2015',
+      years: '2&ndash;5',
+      maxYrs: 5,
+      applicable: socScore < 7,
+      current: S.social==='strong' ? 'Strong ties &#10003;' : S.social==='isolated' ? 'Isolated' : 'Limited connections'
+    },
+    {
+      factor: 'Low / no alcohol',
+      evidence: 'Wood et al., Lancet 2018 &middot; Millwood et al., Lancet 2019',
+      years: '1&ndash;2',
+      maxYrs: 2,
+      applicable: S.alcohol==='heavy'||S.alcohol==='mod',
+      current: S.alcohol==='none' ? 'No alcohol &#10003;' : S.alcohol==='low' ? 'Light use' : S.alcohol==='mod' ? 'Moderate use' : 'Heavy use'
+    },
+    {
+      factor: 'Chronic stress management',
+      evidence: 'Mather & Loncar, Epidemiol Rev 2006 &middot; AHA Scientific Statement 2021',
+      years: '1&ndash;3',
+      maxYrs: 3,
+      applicable: strScore < 6,
+      current: S.stress==='low' ? 'Low stress &#10003;' : S.stress==='mod' ? 'Moderate stress' : 'High / very high stress'
+    },
+    {
+      factor: 'Sense of purpose &amp; meaning',
+      evidence: 'Cohen et al., JAMA Network Open 2020 &middot; Blue Zones research',
+      years: '1&ndash;2.5',
+      maxYrs: 2.5,
+      applicable: S.purpose !== 'strong',
+      current: S.purpose==='strong' ? 'Strong purpose &#10003;' : S.purpose==='moderate' ? 'Moderate purpose' : 'Low / unclear purpose'
+    },
+  ];
+
+  // ── OPTIMAL PATH ITEMS (for "What Could Improve It" tab) ──
+  const optimalItems = [];
+  if (smokingGain > 0) optimalItems.push({ icon:'🚭', text:`<strong>Tobacco cessation</strong> &mdash; the single highest-impact change available to you. Research shows quitting adds an average of 8&ndash;10 years of healthy life, with cardiovascular risk dropping 50% within the first year.`, years:`&minus;${smokingGain} health age years` });
+  if (actGain > 0) optimalItems.push({ icon:'🏃', text:`<strong>Increasing physical activity</strong> to 150+ min/week of moderate exercise + 2x/week strength training is associated with 3&ndash;7 added years of healthy life across major cohort studies.`, years:`&minus;${actGain} health age years` });
+  if (nutGain > 0) optimalItems.push({ icon:'🥦', text:`<strong>Shifting toward a Mediterranean or plant-forward diet</strong> &mdash; the PREDIMED trial showed a 30% reduction in major cardiovascular events. Consistent dietary quality improvements are associated with 2&ndash;4 years of additional healthy life.`, years:`&minus;${nutGain} health age years` });
+  if (slpGain > 0) optimalItems.push({ icon:'🌙', text:`<strong>Improving sleep to 7&ndash;9 hours of quality rest</strong> is linked to reduced cardiovascular risk, better metabolic health, and lower all-cause mortality. Evaluating for sleep apnea may also be appropriate.`, years:`&minus;${slpGain} health age years` });
+  if (strGain > 0) optimalItems.push({ icon:'🧘', text:`<strong>Reducing chronic stress</strong> through evidence-based approaches like Mindfulness-Based Stress Reduction (MBSR), regular exercise, and social engagement. Chronically elevated cortisol accelerates cellular aging; managing it has measurable biological effects.`, years:`&minus;${strGain} health age years` });
+  if (socGain > 0) optimalItems.push({ icon:'🤝', text:`<strong>Strengthening social ties</strong> &mdash; Holt-Lunstad's landmark meta-analysis found social isolation carries mortality risk equivalent to smoking 15 cigarettes/day. Strong relationships are among the most powerful longevity predictors.`, years:`&minus;${socGain} health age years` });
+  if (alcGain > 0) optimalItems.push({ icon:'🍷', text:`<strong>Reducing alcohol intake</strong> &mdash; no level of alcohol consumption is risk-free according to current evidence. Reducing from heavy/moderate use to low or none is associated with measurably lower cancer, liver, and cardiovascular risk.`, years:`&minus;${alcGain} health age years` });
+  if (wgtGain > 0) optimalItems.push({ icon:'⚖️', text:`<strong>Achieving a healthier weight</strong> through sustainable lifestyle changes improves blood pressure, glucose, lipids, and joint health simultaneously. Even 5&ndash;10% weight loss produces clinically meaningful improvements.`, years:`&minus;${wgtGain} health age years` });
+
+  if (optimalItems.length === 0) {
+    optimalItems.push({ icon:'⭐', text:`<strong>Your current lifestyle already reflects many evidence-based health behaviors.</strong> Maintaining these habits is itself a significant achievement associated with a longer, healthier life. Focus on consistency and annual preventive care visits.`, years:'Sustain current gains' });
+  }
+
+  // ── LIFE EXPECTANCY ESTIMATE ──
+  // CDC NVSS 2022 US life expectancy at birth: Male 74.8, Female 79.9
+  // Adjusted for current age (remaining LE) using abridged life tables
+  // Then adjusted by health age delta
+  const isMale = S.sex === 'male';
+  // Base LE at birth
+  const baseLE = isMale ? 74.8 : 79.9;
+  // Conditional LE: if you've already reached age X, your expected total lifespan is longer
+  // Simplified: add ~0.2 yrs for each year survived past 40, capped at +8
+  const survivalBonus = Math.min((Math.max(age - 40, 0)) * 0.18, 8);
+  const adjustedBaseLE = baseLE + survivalBonus;
+  // Current LE adjusted by health age delta (each year of health age adds/subtracts ~0.85 LE yrs)
+  const currentLE = Math.round((adjustedBaseLE - (ageDelta * 0.85)) * 10) / 10;
+  // Optimal LE with all improvements made
+  const optimalLE = Math.round((adjustedBaseLE - (bestDelta * 0.85)) * 10) / 10;
+  const leGain = Math.round((optimalLE - currentLE) * 10) / 10;
+
+  return { healthAge, ageDelta, bestAge, bestDelta, potentialImprovement, longevityRows, optimalItems, currentLE, optimalLE, leGain };
+}
+
+// ── RENDER RESULTS ──
+function renderResults(age, pillarScores, diseases) {
+  const pillarNames = ['Nutrition','Activity','Sleep','Stress','Substances','Social'];
+  const pillarIcons = ['🥦','🏃','🌙','🧘','🚭','🤝'];
+
+  const { healthAge, ageDelta, bestAge, bestDelta, potentialImprovement, longevityRows, optimalItems, currentLE, optimalLE, leGain } = calcHealthAge(age, pillarScores, diseases);
+
+  // ── HEALTH AGE PANELS ──
+  document.getElementById('bio-age').textContent = age;
+  document.getElementById('health-age').textContent = healthAge;
+  document.getElementById('best-age').textContent = bestAge;
+
+  // Health age label + color
+  const healthAgeEl = document.getElementById('health-age');
+  const deltaLabelEl = document.getElementById('age-delta-label');
+  const bestAgeLabelEl = document.getElementById('best-age-label');
+  const bestAgeBadgeEl = document.getElementById('best-age-badge');
+
+  if (ageDelta <= -2) {
+    healthAgeEl.style.color = '#4caf50';
+    deltaLabelEl.innerHTML = `&#9660; ${Math.abs(ageDelta)} yrs younger than biological age`;
+  } else if (ageDelta >= 2) {
+    healthAgeEl.style.color = '#e87461';
+    deltaLabelEl.innerHTML = `&#9650; ${Math.abs(ageDelta)} yrs older than biological age`;
+  } else {
+    healthAgeEl.style.color = 'var(--sage)';
+    deltaLabelEl.textContent = 'Aligned with biological age';
+  }
+
+  if (potentialImprovement > 0) {
+    bestAgeLabelEl.innerHTML = `Up to <strong style="color:rgba(122,173,138,0.9)">&minus;${potentialImprovement} yrs</strong> achievable`;
+    bestAgeBadgeEl.textContent = `${potentialImprovement}+ years of improvement possible`;
+  } else {
+    bestAgeLabelEl.textContent = 'Already near optimal';
+    bestAgeBadgeEl.textContent = 'Excellent lifestyle profile';
+  }
+
+  // ── LIFE EXPECTANCY PANEL ──
+  document.getElementById('le-current').textContent = currentLE;
+  document.getElementById('le-optimal').textContent = optimalLE;
+  if (leGain > 0) {
+    document.getElementById('le-gain-label').innerHTML = `+${leGain} yrs with lifestyle changes`;
+  } else {
+    document.getElementById('le-gain-label').textContent = 'Near optimal already';
+  }
+
+  // ── OPTIMAL PATH TAB ──
+  document.getElementById('optimal-path').innerHTML = optimalItems.map(item => `
+    <div class="opt-item">
+      <div class="opt-icon">${item.icon}</div>
+      <div class="opt-text">
+        ${item.text}
+        <span class="opt-years">${item.years}</span>
+      </div>
+    </div>`).join('');
+
+  // ── LONGEVITY TABLE ──
+  document.getElementById('longevity-tbody').innerHTML = longevityRows.map(r => `
+    <tr>
+      <td style="font-weight:600;color:var(--forest)">${r.factor}</td>
+      <td style="font-size:11px;color:var(--text-muted)">${r.evidence}</td>
+      <td><span class="gain-num">+${r.years} years</span></td>
+      <td class="gain-bar-cell">
+        <div class="gain-bar-bg"><div class="gain-bar-fill" style="width:${Math.min(r.maxYrs/10*100,100)}%"></div></div>
+      </td>
+      <td><span class="gain-tag ${r.applicable ? 'tag-applicable' : 'tag-na'}">${r.current}</span></td>
+    </tr>`).join('');
+
+  // Overall band
+  const avgPillar = Math.round(pillarScores.reduce((a,b)=>a+b,0)/pillarScores.length*10)/10;
+  const highRisk = diseases.filter(d=>d.risk>=40).length;
+  const modRisk = diseases.filter(d=>d.risk>=20&&d.risk<40).length;
+  const overallGrade = avgPillar>=7.5?'A':avgPillar>=6?'B':avgPillar>=4.5?'C':'D';
+  const overallColor = avgPillar>=7?'#2d7a3a':avgPillar>=5?'#d4891a':'#c0392b';
+
+  document.getElementById('overall-band').innerHTML = `
+    <div class="overall-card card-border-${avgPillar>=7?'low':avgPillar>=5?'mod':'high'}">
+      <div class="overall-card-label">Lifestyle Score</div>
+      <div class="overall-card-val" style="color:${overallColor}">${avgPillar}<span style="font-size:18px;font-weight:300">/10</span></div>
+      <div class="overall-card-sub">Avg across 6 pillars</div>
+    </div>
+    <div class="overall-card" style="border-top:3px solid #e53935">
+      <div class="overall-card-label">High Risk Conditions</div>
+      <div class="overall-card-val" style="color:#e53935">${highRisk}</div>
+      <div class="overall-card-sub">of 10 at elevated risk</div>
+    </div>
+    <div class="overall-card" style="border-top:3px solid #ff9800">
+      <div class="overall-card-label">Moderate Risk</div>
+      <div class="overall-card-val" style="color:#ff9800">${modRisk}</div>
+      <div class="overall-card-sub">conditions to monitor</div>
+    </div>
+    <div class="overall-card" style="border-top:3px solid ${ageDelta<=0?'#2d7a3a':'#e53935'}">
+      <div class="overall-card-label">Health Age Delta</div>
+      <div class="overall-card-val" style="color:${ageDelta<=0?'#2d7a3a':'#e53935'}">${ageDelta>0?'+':''}${ageDelta}</div>
+      <div class="overall-card-sub">years from biological age</div>
+    </div>`;
+
+  // Disease grid
+  document.getElementById('disease-grid').innerHTML = diseases.map((d,i) => {
+    const level = d.risk>=40?'high':d.risk>=20?'mod':'low';
+    const barColor = d.risk>=40?'bar-high':d.risk>=20?'bar-mod':'bar-low';
+    return `<div class="disease-card border-${level}" style="animation-delay:${i*0.06}s">
+      <div class="dc-header">
+        <div class="dc-icon-name">
+          <span class="dc-icon">${d.icon}</span>
+          <span class="dc-name">${d.name}</span>
+        </div>
+        <div style="text-align:right">
+          <div class="dc-pct r-${level}">${d.risk}%</div>
+          <div class="dc-rank">${d.rank}</div>
+        </div>
+      </div>
+      <div class="dc-bar-bg"><div class="dc-bar-fill ${barColor}" style="width:${d.risk}%"></div></div>
+      <div class="dc-drivers">${d.drivers.slice(0,4).map(dr=>`<span class="dc-chip ${dr.cls}">${dr.label}</span>`).join('')}</div>
+      <div class="dc-action">${d.action}</div>
+    </div>`;
+  }).join('');
+
+  // Lifestyle scorecard
+  document.getElementById('lifestyle-grid').innerHTML = pillarScores.map((score,i) => {
+    const color = score>=7?'#4caf50':score>=5?'#ff9800':'#e53935';
+    const label = score>=8?'Excellent':score>=6?'Good':score>=4?'Fair':'Needs Work';
+    return `<div class="lf-card">
+      <div class="lf-icon">${pillarIcons[i]}</div>
+      <div class="lf-name">${pillarNames[i]}</div>
+      <div class="lf-score" style="color:${color}">${score.toFixed(1)}</div>
+      <div class="lf-label">${label}</div>
+      <div class="lf-bar"><div class="lf-bar-fill" style="width:${score*10}%;background:${color}"></div></div>
+    </div>`;
+  }).join('');
+
+  // Action plan
+  const actions = buildActionPlan(pillarScores, diseases, age);
+  document.getElementById('actions-wrap').innerHTML = actions.map((a,i) => `
+    <div class="action-item border-${a.impact==='high'?'low':a.impact==='mod'?'mod':'high'}" style="animation-delay:${i*0.08}s">
+      <div class="action-num">${i+1}</div>
+      <div class="action-content">
+        <div class="action-title">${a.title}</div>
+        <div class="action-desc">${a.desc}</div>
+        <div style="margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:8px">
+          <span class="action-impact impact-${a.impact}">${a.impact==='high'?'&#9733; High Impact':a.impact==='mod'?'&#9672; Moderate Impact':'&#9675; Foundational'}</span>
+          ${a.yrs?`<span class="action-impact impact-high">Potential: ${a.yrs} health-years gained</span>`:''}
+        </div>
+        ${a.citations && a.citations.length ? `<div class="action-citations">${a.citations.map(c=>`<a href="${c.url}" target="_blank" rel="noopener" class="cite-link"><span class="cite-label">${c.label}</span> &mdash; ${c.title}</a>`).join('')}</div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function buildActionPlan(pillarScores, diseases, age) {
+  const [nut,act,slp,str,sub,soc] = pillarScores;
+  const actions = [];
+
+  if (sub<8&&(S.smoking==='current'||S.vaping==='yes')) {
+    actions.push({
+      title: 'Tobacco &amp; Vaping Cessation',
+      desc: 'Tobacco use is the leading preventable cause of death in the US, responsible for nearly 500,000 deaths annually. Quitting reduces cardiovascular risk by 50% within one year, lowers cancer risk 30&ndash;50%, and is associated with 8&ndash;10 additional years of life. Effective cessation tools include medication, behavioral counseling, and quit lines &mdash; talk to your physician about what approach is right for you.',
+      impact: 'high', yrs: '8&ndash;10',
+      citations: [{ label:'CDC &middot; USPSTF', title:'Tobacco Cessation: Evidence, Recommendations &amp; Quit Resources', url:'https://www.cdc.gov/tobacco/about/how-to-quit.html' }]
+    });
+  }
+
+  if (act<6) {
+    actions.push({
+      title: 'Increase Physical Activity',
+      desc: 'Regular physical activity is one of the most powerful lifestyle interventions for chronic disease prevention. Research consistently links 150&ndash;300 minutes of moderate activity per week with reduced risk of heart disease, type 2 diabetes, depression, dementia, and several cancers. Strength training twice per week adds further benefit for metabolic health and longevity. Your physician can help identify the right type and intensity for your current fitness level.',
+      impact: 'high', yrs: '3&ndash;7',
+      citations: [{ label:'HHS &middot; ACSM', title:'Physical Activity Guidelines for Americans &mdash; Evidence &amp; How to Get Started', url:'https://odphp.health.gov/our-work/nutrition-physical-activity/physical-activity-guidelines' }]
+    });
+  }
+
+  if (nut<6) {
+    actions.push({
+      title: 'Move Toward a Whole-Food, Plant-Forward Diet',
+      desc: 'Dietary pattern is one of the strongest modifiable determinants of chronic disease risk. Mediterranean and whole-food plant-based patterns are linked to 25&ndash;30% lower cardiovascular risk, reduced cancer incidence, and lower all-cause mortality in large population studies. General direction: more vegetables, legumes, whole grains, and healthy fats; less ultra-processed food, added sugar, and red meat. A registered dietitian or lifestyle medicine physician can help you build a personalized eating plan.',
+      impact: 'high', yrs: '2&ndash;4',
+      citations: [{ label:'NEJM &middot; USDA', title:'Mediterranean Diet Evidence (PREDIMED) &amp; Dietary Guidelines for Americans', url:'https://www.dietaryguidelines.gov/resources/2020-2025-dietary-guidelines-online-materials' }]
+    });
+  }
+
+  if (slp<6||gn('sleep_hrs')<7) {
+    actions.push({
+      title: 'Prioritize Restorative Sleep',
+      desc: 'Consistently sleeping fewer than 7 hours per night is associated with higher risk of obesity, type 2 diabetes, cardiovascular disease, and impaired immune function. Sleep is also the primary time the brain clears metabolic waste products linked to Alzheimer\'s disease. Good sleep hygiene practices include a consistent sleep schedule, a cool and dark room, and reduced screen use before bed. If you suspect a sleep disorder, speak with your physician about evaluation.',
+      impact: 'high', yrs: '2&ndash;4',
+      citations: [{ label:'CDC &middot; AASM', title:'Sleep Health: Evidence, Recommendations &amp; Sleep Hygiene Resources', url:'https://www.cdc.gov/sleep/index.html' }]
+    });
+  }
+
+  if (str<5) {
+    actions.push({
+      title: 'Build Stress Resilience',
+      desc: 'Chronic psychological stress is associated with elevated cardiovascular risk, accelerated cellular aging, and worsened metabolic health. Mindfulness-Based Stress Reduction (MBSR) &mdash; a structured, evidence-based 8-week program developed at UMass Medical School &mdash; is among the most rigorously studied behavioral interventions, with evidence for reducing anxiety, depression, and blood pressure. Other well-supported approaches include regular exercise, time in nature, adequate sleep, and strong social connection. If stress feels unmanageable, talking with a physician or mental health provider is a good first step.',
+      impact: 'mod', yrs: '1&ndash;3',
+      citations: [{ label:'JAMA IM &middot; NIH NCCIH', title:'Mindfulness-Based Stress Reduction (MBSR): Evidence &amp; Free Program Resources', url:'https://www.nccih.nih.gov/health/providers/digest/mind-and-body-approaches-for-stress-science' }]
+    });
+  }
+
+  if (soc<6) {
+    actions.push({
+      title: 'Strengthen Social Connection',
+      desc: 'Social isolation and loneliness are associated with a 29% higher risk of heart disease, 32% higher risk of stroke, and overall mortality risk comparable to smoking 15 cigarettes daily. Strong social ties are also one of the most robust protective factors against cognitive decline. Community engagement, nurturing close relationships, and having a sense of purpose are all linked to longer, healthier lives. If isolation feels significant, speaking with a primary care provider or counselor can open pathways to support.',
+      impact: 'mod', yrs: '2&ndash;5',
+      citations: [{ label:'NIH &middot; NIA', title:'Social Connection and Health: Evidence &amp; Resources for Building Community', url:'https://www.nia.nih.gov/health/loneliness-and-social-isolation/loneliness-and-social-isolation-tips-staying-connected' }]
+    });
+  }
+
+  const topDisease = [...diseases].sort((a,b)=>b.risk-a.risk)[0];
+  if (topDisease && topDisease.risk>=30) {
+    actions.push({
+      title: `Learn More About Your Highest Risk Area: ${topDisease.name}`,
+      desc: `Based on your inputs, ${topDisease.name} is your highest estimated risk area at ${topDisease.risk}% over 10 years. Understanding the key risk factors and evidence-based prevention strategies for this condition is a valuable starting point for a conversation with your physician.`,
+      impact: 'high',
+      citations: topDisease.learnMoreCitation ? [topDisease.learnMoreCitation] : []
+    });
+  }
+
+  if (S.healthcare!=='regular') {
+    actions.push({
+      title: 'Connect with a Primary Care Provider',
+      desc: 'Regular preventive visits are among the most effective tools for catching chronic disease early, when it is most treatable. The USPSTF issues evidence-based recommendations on screenings, counseling, and preventive medications by age and sex &mdash; many of which are fully covered under the ACA. Your primary care physician can review which screenings are appropriate for you and help interpret these results in the context of your full health history.',
+      impact: 'mod',
+      citations: [{ label:'USPSTF', title:'Preventive Care Recommendations: Evidence-Based Screenings by Age &amp; Sex', url:'https://www.uspreventiveservicestaskforce.org/uspstf/recommendation-topics/uspstf-a-and-b-recommendations' }]
+    });
+  }
+
+  if (gn('bmi')>=25) {
+    actions.push({
+      title: 'Explore Structured Weight Management',
+      desc: 'Even modest weight loss of 5&ndash;10% is associated with meaningful improvements in blood pressure, blood glucose, cholesterol, and joint health. The CDC-recognized Diabetes Prevention Program (DPP) is a year-long structured lifestyle program proven to reduce type 2 diabetes risk by 58% in high-risk individuals. A physician or registered dietitian can help identify the most appropriate and sustainable approach for your circumstances.',
+      impact: 'mod', yrs: '1&ndash;3',
+      citations: [{ label:'CDC &middot; NEJM', title:'Diabetes Prevention Program: Evidence &amp; How to Find a DPP Near You', url:'https://www.cdc.gov/diabetes-prevention/index.html' }]
+    });
+  }
+
+  actions.push({
+    title: 'Review Preventive Supplements with Your Physician',
+    desc: 'Certain supplements have meaningful evidence for chronic disease prevention in adults with specific deficiencies or risk profiles &mdash; including Vitamin D3, Omega-3 fatty acids, Magnesium, and B12. However, the appropriate type, dose, and indication vary significantly by individual. This is best reviewed with a physician who can assess your labs and health history rather than using general population guidance.',
+    impact: 'routine',
+    citations: [{ label:'NIH ODS', title:'Dietary Supplement Fact Sheets: Evidence &amp; Safety by Nutrient', url:'https://ods.od.nih.gov/factsheets/list-all/' }]
+  });
+
+  return actions.slice(0,8);
+}
+
+// ── USAGE COUNTER ──
+const COUNTER_KEY = 'previty_method_uses';
+
+async function loadCounter() {
+  try {
+    const result = await window.storage.get(COUNTER_KEY, true); // shared=true
+    const count = result ? parseInt(result.value) || 0 : 0;
+    updateCounterDisplay(count);
+  } catch(e) {
+    // Key doesn't exist yet &mdash; start at 0
+    updateCounterDisplay(0);
+  }
+}
+
+async function incrementCounter() {
+  try {
+    let current = 0;
+    try {
+      const result = await window.storage.get(COUNTER_KEY, true);
+      current = result ? parseInt(result.value) || 0 : 0;
+    } catch(e) { current = 0; }
+    const newCount = current + 1;
+    await window.storage.set(COUNTER_KEY, String(newCount), true);
+    updateCounterDisplay(newCount);
+  } catch(e) {
+    console.log('Counter update skipped:', e.message);
+  }
+}
+
+function updateCounterDisplay(count) {
+  const el = document.getElementById('counter-num');
+  if (el) el.textContent = count.toLocaleString();
+}
+
+// Load on page open, increment on each completed assessment
+loadCounter();
+
+// Wrap original calculate to also increment
+function loadPreview() {
+  // ── SAMPLE PROFILE: Female, 52, moderately healthy, some gaps ──
+  // Demographics / biometrics
+  document.getElementById('age').value = 52;
+  document.getElementById('sex').value = 'female';
+  document.getElementById('bmi').value = 27.4;
+  document.getElementById('waist').value = 34;
+  document.getElementById('sbp').value = 128;
+  document.getElementById('hr').value = 72;
+  document.getElementById('race').value = 'white';
+  document.getElementById('edu').value = 'grad';
+
+  // Labs
+  document.getElementById('glucose').value = 98;
+  document.getElementById('a1c').value = 5.7;
+  document.getElementById('total_chol').value = 204;
+  document.getElementById('hdl').value = 52;
+  document.getElementById('ldl').value = 128;
+  document.getElementById('trig').value = 145;
+
+  // Health history - conditions
+  S.conditions.clear();
+  ['hypertension'].forEach(c => {
+    S.conditions.add(c);
+    const btn = document.querySelector('#conditions .tgl[data-val="'+c+'"]');
+    if (btn) btn.classList.add('on');
+  });
+  // Family history
+  S.family.clear();
+  ['fam_heart','fam_diabetes'].forEach(c => {
+    S.family.add(c);
+    const btn = document.querySelector('#family .tgl[data-val="'+c+'"]');
+    if (btn) btn.classList.add('on');
+  });
+  // Healthcare
+  setToggle('healthcare', 'occasional');
+
+  // Pillar 1: Nutrition
+  document.getElementById('diet_pattern').value = 'average';
+  document.getElementById('veg').value = '2';
+  setToggle('sugar', 'mod');
+
+  // Pillar 2: Activity
+  document.getElementById('cardio_min').value = 90;
+  setToggle('strength', '1');
+  document.getElementById('sitting').value = '6to8';
+
+  // Pillar 3: Sleep
+  document.getElementById('sleep_hrs').value = 6.5;
+  setToggle('sleep_qual', 'fair');
+  setToggle('apnea', 'no');
+
+  // Pillar 4: Stress
+  setToggle('stress', 'high');
+  setToggle('mindfulness', 'none');
+  setToggle('mood', 'fair');
+
+  // Pillar 5: Substances
+  setToggle('smoking', 'never');
+  setToggle('alcohol', 'mod');
+  setToggle('vaping', 'no');
+
+  // Pillar 6: Social
+  setToggle('social', 'limited');
+  setToggle('purpose', 'moderate');
+
+  // Show note
+  document.getElementById('preview-note').style.display = 'block';
+
+  // Run
+  calculate();
+}
+
+// Helper: activate a toggle button and set state
+function setToggle(key, val) {
+  document.querySelectorAll('#'+key+' .tgl').forEach(b => b.classList.remove('on'));
+  const btn = document.querySelector('#'+key+' .tgl[data-val="'+val+'"]');
+  if (btn) { btn.classList.add('on'); S[key] = val; }
+}
+
+function calculate() {
+  const age = gn('age');
+  const sex = g('sex');
+  const bmi = gn('bmi');
+
+  if (!age || !sex) {
+    alert('Please enter your age and biological sex at minimum.'); return;
+  }
+
+  const sbp = gn('sbp')||120;
+  const waist = gn('waist');
+  const glucose = gn('glucose');
+  const a1c = gn('a1c');
+  const totalChol = gn('total_chol')||185;
+  const hdl = gn('hdl')||50;
+  const ldl = gn('ldl');
+  const trig = gn('trig')||120;
+  const hr = gn('hr')||70;
+  const race = g('race');
+  const sleep = gn('sleep_hrs')||7;
+
+  const pillarScores = [
+    scoreNutrition(), scoreActivity(), scoreSleep(),
+    scoreStress(), scoreSubstances(), scoreSocial()
+  ];
+
+  const diseases = calcDiseases(age, sex, bmi, sbp, waist, glucose, a1c, totalChol, hdl, ldl, trig, hr, race);
+
+  renderResults(age, pillarScores, diseases);
+
+  const resultsEl = document.getElementById('results');
+  resultsEl.style.display = 'block';
+  setTimeout(()=>resultsEl.scrollIntoView({behavior:'smooth',block:'start'}), 120);
+
+  // Increment usage counter
+  incrementCounter();
+
+  // Animate bars after render
+  setTimeout(()=>{
+    document.querySelectorAll('.dc-bar-fill, .lf-bar-fill, .score-bar-fill').forEach(el=>{
+      const w = el.style.width; el.style.width='0%';
+      setTimeout(()=>el.style.width=w, 50);
+    });
+  }, 200);
+}
+</script>
+</body>
+</html>
